@@ -1,0 +1,20 @@
+<ion-view view-title="Inspection Report">
+    <ion-content>
+        <div class="card" ng-repeat="q in questions" >
+            <div class="item item-divider">
+            {{q.title}}
+            </div>
+            <div class="item item-text-wrap" ng-repeat="question in q.questions">
+            {{question.question}}
+            <br>
+                <button class="button button-small button-answer button-light">Yes</button>
+                <button class="button button-small button-answer button-light">No</button>
+                <a class="button button-icon icon button-camera ion-ios-camera-outline"></a>
+            </div>
+        </div>
+        <p>
+        <div class="list list-inset">
+            <button class="button button-full button-positive">Submit</button>
+        </div>
+  </ion-content>
+</ion-view>

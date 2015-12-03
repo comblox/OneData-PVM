@@ -1,47 +1,39 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
+.factory('Projects', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
+  var projects = [
+        {
+            'name': 'QS3b AR - Elmvale Row Flooding Glasgow',
+            'number': 1234512
+        },
+        {
+            'name': 'QS3b AR - P001 UID In Park at South of Footbridge Kelvingrove Park',
+            'number': 4030930000
+        },
+        {
+            'name': 'QS3b AR - P013 UID At The Junction of Otago Street and Otago Lane North',
+            'number': 4031050000
+        },
+        {
+            'name': 'S150 - UID - Burnfield Cottages Giffnock Overflow',
+            'number': 4017880000
+        }
+    ];
 
   return {
     all: function() {
-      return chats;
+      return projects;
     },
     remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+      projects.splice(projects.indexOf(chat), 1);
     },
     get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+      for (var i = 0; i < projects.length; i++) {
+        if (projects[i].id === parseInt(chatId)) {
+          return projects[i];
         }
       }
       return null;

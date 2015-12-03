@@ -1,1 +1,22 @@
 /* Empty. Add your own CSS if you like */
+.button-answer {
+    width: 40%;
+    margin-top: 5px;
+}
+
+.button-camera {
+    padding-left: 20px;
+    color: #9C9C9C;
+}
+
+.item-divider {
+    background-color: #f8f8f8;
+}
+
+ion-tabs.tabs-color-active-stable .tab-item {
+    color: #fff;
+}
+
+.list {
+    padding-top: 0;
+}
