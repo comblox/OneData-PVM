@@ -13,8 +13,8 @@
       <li class="item item-toggle" ng-repeat="p in projects">
         <h4>{{p.name}}</h4>
         <p>Project Number: {{p.number}}</p>
-        <label class="toggle toggle-positive">
-          <input type="checkbox">
+        <label class="toggle toggle-positive" >
+          <input type="checkbox" ng-checked="p.show">
           <div class="track">
             <div class="handle"></div>
           </div>
