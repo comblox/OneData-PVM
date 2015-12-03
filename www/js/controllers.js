@@ -81,7 +81,7 @@ angular.module('starter.controllers', [])
             ]
         },
         {
-            title: 'ROAD SAFETY LAMPS',
+            title: 'Road Safety Lamps',
             order: 1,
             questions: [
                 {
@@ -102,7 +102,7 @@ angular.module('starter.controllers', [])
             ]
         },
         {
-            title: 'TRAFFIC LIGHTS',
+            title: 'Traffic Lights',
             order: 1,
             questions: [
                 {
@@ -123,7 +123,7 @@ angular.module('starter.controllers', [])
             ]
         },
         {
-            title: 'PEDESTRIAN ROUTES',
+            title: 'Pedestrian Routes',
             order: 1,
             questions: [
                 {
@@ -149,7 +149,7 @@ angular.module('starter.controllers', [])
             ]
         },
         {
-            title: 'COMPLETION',
+            title: 'Completion',
             order: 1,
             questions: [
                 {
