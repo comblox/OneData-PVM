@@ -1,5 +1,9 @@
 <ion-view view-title="Inspection Report">
     <ion-content>
+        <div class="item item-image">
+            {{vm.image}}
+            <img id="myImage" class="item"ng-src="{{vm.image}}" style="height: 250px;"/>
+        </div>
         <div class="card" ng-repeat="q in questions" >
             <div class="item item-divider">
             {{q.title}}
@@ -9,9 +13,10 @@
             <br>
                 <button class="button button-small button-answer button-outline button-positive">Yes</button>
                 <button class="button button-small button-answer button-outline button-positive">No</button>
-                <a class="button button-icon icon button-camera ion-ios-camera-outline"></a>
+                <a class="button button-icon icon button-camera ion-ios-camera-outline" ng-click="vm.getImage()"></a>
             </div>
         </div>
+        <img ng-src="{{vm.image}}" alt="">
         <p>
         <div class="list list-inset">
             <button class="button button-full button-positive">Submit</button>

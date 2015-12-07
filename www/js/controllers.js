@@ -4,7 +4,25 @@ angular.module('starter.controllers', [])
     $scope.projects = Projects.all();
 })
 
-.controller('InspectionReportCtrl', function($scope) {
+.controller('InspectionReportCtrl', function($scope, CameraService, $ionicPlatform) {
+    
+    var vm = this;
+    vm.storage= 'TMInspection';
+    vm.image = '';
+
+    $ionicPlatform.ready(function() {
+        vm.getImage = function() {
+            CameraService.camera(vm.storage)
+            .then(
+            function(img){
+                console.log('Resolved: ' + img);
+                vm.image = img;
+            },
+            function(err){
+                console.log('Rejected: ' + err);
+            });
+        };
+    });
     
     $scope.questions = [
         {
