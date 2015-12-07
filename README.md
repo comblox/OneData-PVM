@@ -1,3 +1,17 @@
+# The aBV Traffic Management Mobile Application
+
+**The Project is an Ionic HTML 5 Hybrid Mobile Application**
+
+This project was built using [Ionic] (http://ionicframework.com) and the coding style follows the [Angular Style Guide](https://github.com/johnpapa/angularjs-styleguide).
+
+Why? Because you would never go into the SPA without a Hot Towel...
+
+# Datasource
+
+The Datasource for this application is an OLAP in-memory data cude, containing numerous data sources stored in a Data Warehouse, which have been ETL cleansed. However, it is unrestricted and will take data from any endpoint that is required to get the job done.
+
+# How to use (Straight from the Ionic docs)
+
 Ionic-Cli
 =========
 
@@ -581,4 +595,4 @@ The ionic.project is a configuration for an ionic project that stores the follow
 * `proxies` - designated proxies to use during `ionic serve`.  
 * `name` - the name of the application.  
 * `sass` - the setting to watch sass during `ionic serve`.  
-* `watchPatterns` - the patterns to watch and live reload during `ionic.serve`.  
+* `watchPatterns` - the patterns to watch and live reload during `ionic.serve`.
