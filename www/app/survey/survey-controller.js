@@ -4,33 +4,33 @@
  * @description This is the Survey Controller
  *
  */
-(function() {
+ (function() {
     'use strict';
 
     angular
-        .module('app')
-        .controller('SurveyController', SurveyController);
+    .module('app')
+    .controller('SurveyController', SurveyController);
 
-        SurveyController.$inject = ['$q', '$state'];
-        /* @ngInject */    
+    SurveyController.$inject = ['$q', '$state'];
+    /* @ngInject */
 
-        function SurveyController($q, $state) {
-            /*jshint validthis: true */
-            var vm = this;
-            vm.title = 'SurveyController';
+    function SurveyController($q, $state) {
+        /*jshint validthis: true */
+        var vm = this;
+        vm.title = 'SurveyController';
 
-            activate();
+        activate();
 
-            /**
-            * @ngdoc function
-            * @name SurveyController:activate
-            * @kind function
-            * @description This function returns the data model
-            */
+        /**
+        * @ngdoc function
+        * @name SurveyController:activate
+        * @kind function
+        * @description This function returns the data model
+        */
 
-            function activate() {
+        function activate() {
 
-            }
+        }
 
     }
 })();

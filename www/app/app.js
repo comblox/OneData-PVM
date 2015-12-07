@@ -4,14 +4,14 @@
  * @description Thisis the main app module for the application
  *
  */
-(function() {
+ (function() {
     'use strict';
 
     angular
-        .module('app', [
+    .module('app', [
         'ionic',
         'ngCordova'
-    ])
+        ])
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -28,7 +28,7 @@
 
     .config(function($stateProvider, $urlRouterProvider) {
 
-      $stateProvider
+        $stateProvider
 
         .state('tab', {
             url: '/tab',
@@ -38,8 +38,8 @@
 
         .state('tab.dash', {
             url: '/dash',
-                views: {
-                    'tab-dash': {
+            views: {
+                'tab-dash': {
                     templateUrl: 'app/dashboard/dashboard.html',
                     controller: 'DashboardController as vm'
                 }
@@ -48,19 +48,18 @@
 
         .state('tab.inspection', {
             url: '/inspection',
-                views: {
-                    'tab-dash': {
+            views: {
+                'tab-dash': {
                     templateUrl: 'app/inspection/inspection.html',
                     controller: 'InspectionController as vm'
                 }
             }
         })
 
-
         .state('tab.survey', {
             url: '/survey',
-                views: {
-                    'tab-dash': {
+            views: {
+                'tab-dash': {
                     templateUrl: 'app/survey/survey.html',
                     controller: 'SurveyController as vm'
                 }
@@ -69,8 +68,8 @@
 
         .state('tab.account', {
             url: '/account',
-                views: {
-                    'tab-account': {
+            views: {
+                'tab-account': {
                     templateUrl: 'app/account/account.html',
                     controller: 'AccountController as vm'
                 }
@@ -82,7 +81,3 @@
     });
 
 })();
-
-
-
-

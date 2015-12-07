@@ -5,30 +5,31 @@
 *
 */
 (function() {
-'use strict';
+    'use strict';
 
     angular
         .module('app')
         .factory('DataService', DataService);
 
-        DataService.$inject = ['MockProjectsService', 'MockQuestionsService'];
-        function DataService(MockProjectsService, MockQuestionsService) {
-            var service = {
-                getProjects:getProjects,
-                getQuestions: getQuestions
-            };
-        
-            return service;
+    DataService.$inject = ['MockProjectsService', 'MockQuestionsService'];
+    function DataService(MockProjectsService, MockQuestionsService) {
 
-            ////////////////
+        var service = {
+            getProjects:getProjects,
+            getQuestions: getQuestions
+        };
 
-            function getProjects() {
-                return MockProjectsService.query();
-            }
+        return service;
 
-            function getQuestions() {
-                return MockQuestionsService.query();
-            }
+        ////////////////
+
+        function getProjects() {
+            return MockProjectsService.query();
+        }
+
+        function getQuestions() {
+            return MockQuestionsService.query();
+        }
 
     }
 })();

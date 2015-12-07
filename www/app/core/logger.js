@@ -5,43 +5,46 @@
 *
 */
 (function() {
-'use strict';
+    'use strict';
 
     angular
         .module('app')
         .factory('logger', logger);
 
-        logger.$inject = ['$log'];
-        function logger($log) {
-            var service = {
-                showToasts: true,
+    logger.$inject = ['$log'];
+    /* @ngInject */
 
-                error   : error,
-                info    : info,
-                success : success,
-                warning : warning,
+    function logger($log) {
+        /*jshint validthis: true */
+        var service = {
+            showToasts: true,
 
-                // straight to console; bypass toast
-                log     : $log.log
-            };
+            error   : error,
+            info    : info,
+            success : success,
+            warning : warning,
 
-            return service;
-            /////////////////////
+            // straight to console; bypass toast
+            log     : $log.log
+        };
 
-            function error(message, data, title) {
-                $log.error('Error: ' + message, data);
-            }
+        return service;
+        /////////////////////
 
-            function info(message, data, title) {
-                $log.info('Info: ' + message, data);
-            }
+        function error(message, data, title) {
+            $log.error('Error: ' + message, data);
+        }
 
-            function success(message, data, title) {
-                $log.info('Success: ' + message, data);
-            }
+        function info(message, data, title) {
+            $log.info('Info: ' + message, data);
+        }
 
-            function warning(message, data, title) {
-                $log.warn('Warning: ' + message, data);
-            }
+        function success(message, data, title) {
+            $log.info('Success: ' + message, data);
+        }
+
+        function warning(message, data, title) {
+            $log.warn('Warning: ' + message, data);
+        }
     }
 })();

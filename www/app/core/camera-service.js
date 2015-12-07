@@ -2,14 +2,14 @@
     'use strict';
 
     angular
-    .module('app')
-    .factory('CameraService', CameraService);
+        .module('app')
+        .factory('CameraService', CameraService);
 
     /* @ngInject */
     function CameraService($cordovaCamera, $q) {
 
         var service = {
-        camera: camera
+            camera: camera
         };
 
         return service;
@@ -35,10 +35,10 @@
                 $cordovaCamera.getPicture(options).then(
                     function(imageData) {
                         resolve(imageData);
-                    }, 
+                    },
                     function(err) {
                         reject('Upload failed, problem with accessing the camera' + err);
-                });
+                    });
             });
         }
     }
