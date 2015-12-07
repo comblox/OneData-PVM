@@ -1,8 +1,9 @@
 # The aBV Traffic Management Mobile Application
 
-**The Project is an Ionic HTML 5 Hybrid Mobile Application**
+**The Project is an Ionic Hybrid Mobile Application**
 
 This project was built using [Ionic] (http://ionicframework.com) and the coding style follows the [Angular Style Guide](https://github.com/johnpapa/angularjs-styleguide).
+
 
 Why? Because you would never go into the SPA without a Hot Towel...
 
