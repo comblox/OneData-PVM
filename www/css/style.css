@@ -21,3 +21,7 @@ ion-tabs.tabs-color-active-stable .tab-item {
 .list {
     padding-top: 0;
 }
+
+.question-action {
+    color: grey !important;
+}

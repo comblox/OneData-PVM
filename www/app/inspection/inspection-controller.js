@@ -12,16 +12,20 @@
     .controller('InspectionController', InspectionController);
 
     InspectionController.$inject = ['logger', '$q', 'CameraService', '$ionicPlatform',
-    '$state', 'DataService'];
+                                                          '$state', 'DataService', '$scope',
+                                                          '$localStorage','$sessionStorage'];
     /* @ngInject */
 
     function InspectionController(logger, $q, CameraService, $ionicPlatform,
-     $state, DataService) {
+                                                        $state, DataService, $scope, $localStorage,
+                                                        $sessionStorage) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'InspectionController';
 
+        vm.report = '';
         vm.questions = '';
+        $scope.$storage = $localStorage;
 
         activate();
 
@@ -49,8 +53,15 @@
         function getData() {
             DataService.getQuestions()
             .then(
+                function (data) {
+                    $scope.$storage.report = data;
+                    logger.info('Stored Projects in localstorage');
+                    return data;
+                })
+            .then(
                 function(data) {
-                    vm.questions = data;
+                    vm.report = data;
+                    vm.questions = angular.copy(data);
                     logger.info('Returned Questions from DataService ');
                 },
                 function(err) {
@@ -78,5 +89,16 @@
                     });
             };
         });
+
+        vm.deleteReport = function() {
+            delete $scope.$storage.report;
+            vm.report = angular.copy(vm.questions);
+            return;
+        };
+
+        vm.saveReport = function() {
+            $scope.$storage.report = vm.report;
+            return;
+        };
     }
 })();

@@ -10,7 +10,8 @@
     angular
     .module('app', [
         'ionic',
-        'ngCordova'
+        'ngCordova',
+        'ngStorage'
         ])
 
     .run(function($ionicPlatform) {
@@ -25,6 +26,12 @@
             }
         });
     })
+
+    .config(['$localStorageProvider',
+        function ($localStorageProvider) {
+            $localStorageProvider.setKeyPrefix('abv-');
+        }]
+    )
 
     .config(function($stateProvider, $urlRouterProvider) {
 

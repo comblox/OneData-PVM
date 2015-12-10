@@ -2,18 +2,38 @@
     <button class="button button-icon icon ion-ios-camera-outline" ng-click="vm.survey()"></button>
     </ion-nav-buttons>
     <ion-content>
-        <div class="card" ng-repeat="q in vm.questions" >
-            <div class="item item-divider">
-            {{q.title}}
-            </div>
-            <div class="item item-text-wrap" ng-repeat="question in q.questions">
+        <div class="button-bar">
+            <a class="button" ng-click="vm.saveReport()">Save</a>
+            <a class="button" ng-click="vm.deleteReport()">Clear All</a>
+        </div>
+        <div class="list card" ng-repeat="q in vm.report" >
+        <div class="item">
+            <h2>{{q.title}}</h2>
+        </div>
+        <div class="item item-text-wrap" ng-repeat="question in q.questions">
             {{question.question}}
             <br>
-                <button class="button button-small button-answer button-outline button-positive">Yes</button>
-                <button class="button button-small button-answer button-outline button-positive">No</button>
-            </div>
+            <button class="button button-small button-answer button-positive"
+                              ng-click="question.answer = 'yes' "
+                              ng-class="{ 'button-outline': question.answer !== 'yes'}">
+                Yes
+            </button>
+            <button class="button button-small button-answer button-positive"
+                          ng-click="question.answer = 'no' "
+                          ng-class="{ 'button-outline': question.answer !=='no' }">No
+            </button>
         </div>
-        <p>
+<!--         <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item question-action" href="#">
+                <i class="icon ion-chatbox"></i>
+                Comment
+            </a>
+            <a class="tab-item question-action" href="#">
+                <i class="icon ion-information-circled"></i>
+                 Info
+            </a>
+        </div> -->
+        </div>
         <div class="list list-inset">
             <button class="button button-full button-positive">Submit</button>
         </div>
