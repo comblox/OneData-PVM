@@ -2,10 +2,6 @@
     <button class="button button-icon icon ion-ios-camera-outline" ng-click="vm.survey()"></button>
     </ion-nav-buttons>
     <ion-content>
-        <div class="button-bar">
-            <a class="button" ng-click="vm.saveReport()">Save</a>
-            <a class="button" ng-click="vm.deleteReport()">Clear All</a>
-        </div>
         <div class="list card" ng-repeat="q in vm.report" >
         <div class="item">
             <h2>{{q.title}}</h2>
@@ -22,8 +18,12 @@
                           ng-click="question.answer = 'no' "
                           ng-class="{ 'button-outline': question.answer !=='no' }">No
             </button>
+            <button class="button button-small button-answer button-positive"
+                          ng-click="question.answer = 'na' "
+                          ng-class="{ 'button-outline': question.answer !=='na' }">N&#47A
+            </button>
         </div>
-<!--         <div class="item tabs tabs-secondary tabs-icon-left">
+        <div class="item tabs tabs-secondary tabs-icon-left">
             <a class="tab-item question-action" href="#">
                 <i class="icon ion-chatbox"></i>
                 Comment
@@ -32,10 +32,11 @@
                 <i class="icon ion-information-circled"></i>
                  Info
             </a>
-        </div> -->
         </div>
-        <div class="list list-inset">
-            <button class="button button-full button-positive">Submit</button>
+        </div>
+        <div class="button-bar">
+            <a class="button" ng-click="vm.saveReport()">Save</a>
+            <a class="button" ng-click="vm.deleteReport()">Clear All</a>
         </div>
   </ion-content>
 </ion-view>
