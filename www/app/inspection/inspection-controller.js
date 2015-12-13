@@ -108,33 +108,75 @@
             return;
         };
 
+        // Image Survey Modal
         $ionicModal.fromTemplateUrl('app/inspection/images-modal.html', {
             scope: $scope,
             animation: 'slide-in-up'
         })
-        .then(function(modal) {
-            $scope.modal = modal;
+        .then(function(surveyModal) {
+            $scope.surveyModal = surveyModal;
         });
 
-        $scope.openModal = function() {
-            $scope.modal.show();
+        $scope.openSurveyModal = function() {
+            $scope.surveyModal.show();
         };
 
-        $scope.closeModal = function() {
-            $scope.modal.hide();
+        $scope.closeSurveyModal = function() {
+            $scope.surveyModal.hide();
         };
         //Cleanup the modal when we're done with it!
         $scope.$on('$destroy', function() {
-            $scope.modal.remove();
+            $scope.surveyModal.remove();
         });
         // Execute action on hide modal
-            $scope.$on('modal.hidden', function() {
+            $scope.$on('surveyModal.hidden', function() {
         // Execute action
         });
         // Execute action on remove modal
-            $scope.$on('modal.removed', function() {
+            $scope.$on('surveyModal.removed', function() {
         // Execute action
         });
+
+        // Section Info Modal
+        $ionicModal.fromTemplateUrl('app/inspection/info-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        })
+        .then(function(infoModal) {
+            $scope.infoModal = infoModal;
+        });
+
+        $scope.openInfoModal = function(title, info) {
+            $scope.infoModal.title = title;
+            $scope.infoModal.info = info;
+            $scope.infoModal.show();
+        };
+
+        $scope.closeInfoModal = function() {
+            $scope.infoModal.hide();
+        };
+        //Cleanup the modal when we're done with it!
+        $scope.$on('$destroy', function() {
+            $scope.infoModal.remove();
+        });
+        // Execute action on hide modal
+            $scope.$on('infoModal.hidden', function() {
+        // Execute action
+        });
+        // Execute action on remove modal
+            $scope.$on('infoModal.removed', function() {
+        // Execute action
+        });
+
+        $scope.showInfo = function(section, info) {
+           var alertPopup = $ionicPopup.alert({
+             title: section,
+             template: info
+           });
+           alertPopup.then(function(res) {
+             console.log('Info Panel closed');
+           });
+         };
 
         $scope.showConfirm = function() {
             var confirmPopup = $ionicPopup.confirm({

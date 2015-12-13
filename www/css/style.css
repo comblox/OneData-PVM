@@ -41,6 +41,25 @@ ion-tabs.tabs-color-active-stable .tab-item {
 
 .empty-content {
     text-align: center;
-    padding-top: 40px;
+    padding-top: 50%;
     color: #b2b2b2;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.comments {
+    width: 100%;
+}
+
+.button-half {
+    width: 45%;
+}
+
+.button-right {
+    float: right;
+}
+
+.complete-item {
+    margin-left: 10px;
+    margin-right: 10px;
 }

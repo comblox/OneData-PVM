@@ -1,42 +1,55 @@
 <ion-view view-title="Inspection Report">    <ion-nav-buttons side="right">
-    <button class="button button-icon icon ion-ios-camera-outline" ng-click="modal.show()"></button>
+    <button class="button button-icon icon ion-ios-camera-outline" ng-click="surveyModal.show()"></button>
     </ion-nav-buttons>
     <ion-content>
         <div class="list card" ng-repeat="q in vm.report.questions" >
-        <div class="item">
-            <h2>{{q.title}}</h2>
+            <div class="item">
+                <h2>{{q.title}}</h2>
+            </div>
+            <div class="item item-text-wrap" ng-repeat="question in q.questions">
+                {{question.question}}
+                <br>
+                <button class="button button-small button-answer button-positive"
+                                  ng-click="question.answer = 'yes' "
+                                  ng-class="{ 'button-outline': question.answer !== 'yes'}">
+                    Yes
+                </button>
+                <button class="button button-small button-answer button-positive"
+                              ng-click="question.answer = 'no' "
+                              ng-class="{ 'button-outline': question.answer !=='no' }">No
+                </button>
+                <button class="button button-small button-answer button-positive"
+                              ng-click="question.answer = 'na' "
+                              ng-class="{ 'button-outline': question.answer !=='na' }">N&#47A
+                </button>
+            </div>
+            <div ng-show="comments" class="item item-text-wrap">
+                <textarea class="comments"
+                                rows="4"
+                                placeholder="Add your comments"
+                                ng-model="q.comment">
+                </textarea>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item question-action" ng-click="comments = !comments">
+                    <i class="icon ion-chatbox"></i>
+                    Add Comment
+                </a>
+                <a class="tab-item question-action" ng-click="openInfoModal(q.title, q.info)">
+                    <i class="icon ion-information-circled"></i>
+                     More Info
+                </a>
+            </div>
         </div>
-        <div class="item item-text-wrap" ng-repeat="question in q.questions">
-            {{question.question}}
-            <br>
-            <button class="button button-small button-answer button-positive"
-                              ng-click="question.answer = 'yes' "
-                              ng-class="{ 'button-outline': question.answer !== 'yes'}">
-                Yes
-            </button>
-            <button class="button button-small button-answer button-positive"
-                          ng-click="question.answer = 'no' "
-                          ng-class="{ 'button-outline': question.answer !=='no' }">No
-            </button>
-            <button class="button button-small button-answer button-positive"
-                          ng-click="question.answer = 'na' "
-                          ng-class="{ 'button-outline': question.answer !=='na' }">N&#47A
-            </button>
-        </div>
-        <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item question-action" href="#">
-                <i class="icon ion-chatbox"></i>
-                Comment
-            </a>
-            <a class="tab-item question-action" href="#">
-                <i class="icon ion-information-circled"></i>
-                 Info
-            </a>
-        </div>
-        </div>
-        <div class="button-bar">
-            <a class="button" ng-click="vm.saveReport()">Save</a>
-            <a class="button" ng-click="vm.deleteReport()">Clear All</a>
-        </div>
+            <div class="complete-item">
+                <button class="button button-small button-half button-assertive"
+                             ng-click="vm.deleteReport()">
+                    Clear All
+                </button>
+                <button class="button button-small button-half button-positive button-right"
+                             ng-click="vm.saveReport()">
+                    Save
+                </button>
+            </div>
   </ion-content>
 </ion-view>
