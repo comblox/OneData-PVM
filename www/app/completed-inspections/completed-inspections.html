@@ -1,0 +1,41 @@
+<ion-view view-title="Completed Inspections">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-ios-trash-outline"
+                     ng-click="vm.showDelete = !vm.showDelete">
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="item item-divider">
+          Pending Upload
+        </div>
+        <h4 class="empty-inspections" ng-show="!vm.pending || vm.pending == '' ">You have no Inspections waiting to upload</h4>
+        <ion-list show-delete="vm.showDelete">
+            <ion-item class="item item-thumbnail-left"
+                    ng-repeat="i in vm.pending">
+                    <ion-delete-button class="ion-minus-circled trash-icon"
+                                       ng-click="vm.deleteInspection()">
+                    </ion-delete-button>
+                    <img ng-src="{{i.image[0] || 'images/abv-holder.png'}}">
+                    <h4>{{i.projectTitle}}</h4>
+                    <h4>Project Number: {{i.report.split('-')[0]}}</h4>
+                    <h6>{{i.report.split('-')[1] | date:"MMMM dd yyyy 'at' h:mma"}}</h6>
+            </ion-item>
+        </ion-list>
+        <div class="item item-divider">
+            Completed
+        </div>
+        <h4 class="empty-inspections" ng-show="!vm.inspections || vm.inspections == '' ">You have not uploaded any Inspections</h4>
+        <ion-list>
+            <ion-item class="item item-thumbnail-left"
+                    ng-repeat="i in vm.inspections">
+                    <ion-delete-button class="ion-minus-circled trash-icon"
+                                       ng-click="vm.deleteInspection($index)">
+                    </ion-delete-button>
+                    <img ng-src="{{i.image[0] || 'images/abv-holder.png'}}">
+                    <h4>{{i.projectTitle}}</h4>
+                    <h4>Project Number: {{i.report.split('-')[0]}}</h4>
+                    <h6>{{i.report.split('-')[1] | date:"MMMM dd yyyy 'at' h:mma"}}</h6>
+            </ion-item>
+        </ion-list>
+</ion-content>
+</ion-view>

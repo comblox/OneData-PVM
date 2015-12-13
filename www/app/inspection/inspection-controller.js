@@ -71,6 +71,7 @@
             .then(
                 function(data) {
                     vm.report.report = $stateParams.projectId + '-' + Date.now();
+                    vm.report.projectTitle = $stateParams.projectTitle;
                     logger.info('Report Id: ' + vm.report.report);
                 },
                 function(err) {
@@ -99,12 +100,12 @@
         };
 
         vm.saveReport = function() {
-            var reports = $scope.$storage.reports;
+            var reports = $scope.$storage.pending;
             if (!reports) {
                 reports = [];
             }
             reports.push(vm.report);
-            $scope.$storage.reports = reports;
+            $scope.$storage.pending = reports;
             $state.go('tab.dash');
             return;
         };

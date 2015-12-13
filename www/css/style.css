@@ -47,6 +47,14 @@ ion-tabs.tabs-color-active-stable .tab-item {
     margin: 0 auto;
 }
 
+.empty-inspections {
+    text-align: center;
+    padding: 10px;
+    color: #b2b2b2;
+    width: 75%;
+    margin: 0 auto;
+}
+
 .comments {
     width: 100%;
 }

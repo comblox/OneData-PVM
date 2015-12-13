@@ -1,6 +1,6 @@
 <ion-view view-title="aBV Traffic Management">
   <ion-content>
-      <ion-item class="item-remove-animate item-icon-right" type="item-text-wrap" href="#/tab/inspection/{{p.number}}" ng-repeat="p in vm.projects">
+      <ion-item class="item-remove-animate item-icon-right" type="item-text-wrap" href="#/tab/inspection/{{p.number}}/{{p.name}}" ng-repeat="p in vm.projects">
         <h4>{{p.name}}</h4>
         <p>Project Number: {{p.number}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
