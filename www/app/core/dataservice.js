@@ -11,12 +11,12 @@
         .module('app')
         .factory('DataService', DataService);
 
-    DataService.$inject = ['MockProjectsService', 'MockQuestionsService'];
-    function DataService(MockProjectsService, MockQuestionsService) {
+    DataService.$inject = ['MockProjectsService', 'MockReportService'];
+    function DataService(MockProjectsService, MockReportService) {
 
         var service = {
             getProjects:getProjects,
-            getQuestions: getQuestions
+            getReport: getReport
         };
 
         return service;
@@ -27,8 +27,8 @@
             return MockProjectsService.query();
         }
 
-        function getQuestions() {
-            return MockQuestionsService.query();
+        function getReport() {
+            return MockReportService.query();
         }
 
     }

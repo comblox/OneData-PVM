@@ -13,18 +13,21 @@
 
     InspectionController.$inject = ['logger', '$q', 'CameraService', '$ionicPlatform',
                                                           '$state', 'DataService', '$scope',
-                                                          '$localStorage','$sessionStorage'];
+                                                          '$localStorage','$sessionStorage',
+                                                          '$ionicModal', '$ionicPopup', '$stateParams'];
     /* @ngInject */
 
     function InspectionController(logger, $q, CameraService, $ionicPlatform,
                                                         $state, DataService, $scope, $localStorage,
-                                                        $sessionStorage) {
+                                                        $sessionStorage, $ionicModal, $ionicPopup,
+                                                        $stateParams) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'InspectionController';
 
-        vm.report = '';
         vm.questions = '';
+        vm.report = '';
+
         $scope.$storage = $localStorage;
 
         activate();
@@ -51,30 +54,28 @@
         * @description This function returns the data model from the dataservice
         */
         function getData() {
-            DataService.getQuestions()
+            DataService.getReport()
             .then(
                 function (data) {
                     $scope.$storage.report = data;
-                    logger.info('Stored Projects in localstorage');
+                    logger.info('Stored Report in localstorage');
                     return data;
                 })
             .then(
+                function (data) {
+                    vm.report = data[0];
+                    vm.questions = angular.copy(data[0]);
+                    logger.info('Returned Report from DataService ');
+                })
+            .then(
                 function(data) {
-                    vm.report = data;
-                    vm.questions = angular.copy(data);
-                    logger.info('Returned Questions from DataService ');
+                    vm.report.report = $stateParams.projectId + '-' + Date.now();
+                    logger.info('Report Id: ' + vm.report.report);
                 },
                 function(err) {
                     logger.error('There was an error quering Dataservice ' + err);
                 });
         }
-
-        vm.image = '';
-
-        vm.survey = function() {
-            console.log('Clicked');
-            $state.go('tab.survey');
-        };
 
         $ionicPlatform.ready(function() {
             vm.getImage = function() {
@@ -82,7 +83,7 @@
                 .then(
                     function(img) {
                         logger.info('Resolved: ' + img);
-                        vm.image = img;
+                        vm.report.images.push(img);
                     },
                     function(err) {
                         logger.error('Rejected: ' + err);
@@ -97,8 +98,57 @@
         };
 
         vm.saveReport = function() {
-            $scope.$storage.report = vm.report;
+            var reports = $scope.$storage.reports;
+            if (!reports){
+                reports = [];
+            }
+            reports.push(vm.report);
+            $scope.$storage.reports = reports;
+            $state.go('tab.dash');
             return;
         };
+
+        $ionicModal.fromTemplateUrl('app/inspection/images-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        })
+        .then(function(modal) {
+            $scope.modal = modal;
+        });
+
+        $scope.openModal = function() {
+            $scope.modal.show();
+        };
+
+        $scope.closeModal = function() {
+            $scope.modal.hide();
+        };
+        //Cleanup the modal when we're done with it!
+        $scope.$on('$destroy', function() {
+            $scope.modal.remove();
+        });
+        // Execute action on hide modal
+            $scope.$on('modal.hidden', function() {
+        // Execute action
+        });
+        // Execute action on remove modal
+            $scope.$on('modal.removed', function() {
+        // Execute action
+        });
+
+        $scope.showConfirm = function() {
+            var confirmPopup = $ionicPopup.confirm({
+                title: 'Remove Image',
+                template: 'Are you sure you want to remove this image?'
+            });
+            confirmPopup.then(function(res) {
+                if(res) {
+                    logger.info('Image removed');
+                } else {
+                    logger.info('You do not want to remove this image');
+                }
+            });
+        };
+
     }
 })();

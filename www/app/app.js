@@ -54,21 +54,11 @@
         })
 
         .state('tab.inspection', {
-            url: '/inspection',
+            url: '/inspection/:projectId',
             views: {
                 'tab-dash': {
                     templateUrl: 'app/inspection/inspection.html',
                     controller: 'InspectionController as vm'
-                }
-            }
-        })
-
-        .state('tab.survey', {
-            url: '/survey',
-            views: {
-                'tab-dash': {
-                    templateUrl: 'app/survey/survey.html',
-                    controller: 'SurveyController as vm'
                 }
             }
         })
