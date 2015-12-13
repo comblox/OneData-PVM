@@ -1,0 +1,166 @@
+[
+   {
+      "author": "Paul Sutherland",
+      "report": "12345",
+      "images": [],
+      "geo": {
+         "lat": "",
+         "long": ""
+      },
+      "uploaded": false,
+      "questions": [
+         {
+            "title":"General",
+            "order":1,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Has the TM notice been accepted by the council?",
+                  "answer":""
+               },
+               {
+                  "question":"Is signing in accordance with NRSWA?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Signs",
+            "order":2,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Are all signs in the correct place?",
+                  "answer":""
+               },
+               {
+                  "question":"Are all signs clean?",
+                  "answer":""
+               },
+               {
+                  "question":"Have all damaged signs been removed and replaced?",
+                  "answer":""
+               },
+               {
+                  "question":"Are all signs secured against being blown over?",
+                  "answer":""
+               },
+               {
+                  "question":"Is there an information board displayed?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Traffic Cones",
+            "order":3,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Are all traffic cones in the correct place?",
+                  "answer":""
+               },
+               {
+                  "question":"Are all traffic cones clean?",
+                  "answer":""
+               },
+               {
+                  "question":"Are all traffic cones fitted with a Class 2 reflective sleeve?",
+                  "answer":""
+               },
+               {
+                  "question":"Have all damaged cones been removed and replaced?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Road Safety Lamps",
+            "order":4,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Are there sufficient numbers of road safety lamps?",
+                  "answer":""
+               },
+               {
+                  "question":"Are they working?",
+                  "answer":""
+               },
+               {
+                  "question":"Are they clean?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Traffic Lights",
+            "order":5,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Are the traffic lights working correctly?",
+                  "answer":""
+               },
+               {
+                  "question":"Is there a STOP/GO board available?",
+                  "answer":""
+               },
+               {
+                  "question":"If the traffic lights are powered by diesel, is the tank full?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Pedestrian Routes",
+            "order":6,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Are pedestrian routes clearly indicated?",
+                  "answer":""
+               },
+               {
+                  "question":"Are pedestrian routes free from obstructions?",
+                  "answer":""
+               },
+               {
+                  "question":"Does it meet the minimum unobstructed width of 1m?",
+                  "answer":""
+               },
+               {
+                  "question":"If a temporary footway in the road is used, are ramps to the kerbs provided where necessary?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Completion",
+            "order":7,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Have all signs, cones, barriers & lamps been removed?",
+                  "answer":""
+               },
+               {
+                  "question":"Have any covered permanent signs been restored?",
+                  "answer":""
+               },
+               {
+                  "question":"Have the authorities been told the work is completed?",
+                  "answer":""
+               }
+            ]
+         }
+      ]
+   }
+]

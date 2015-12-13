@@ -14,9 +14,10 @@
     InspectionController.$inject = ['logger', '$q', 'CameraService', '$ionicPlatform',
                                                           '$state', 'DataService', '$scope',
                                                           '$localStorage','$sessionStorage',
-                                                          '$ionicModal', '$ionicPopup', '$stateParams'];
+                                                          '$ionicModal', '$ionicPopup',
+                                                          '$stateParams'];
     /* @ngInject */
-
+    /*jshint -W072 */
     function InspectionController(logger, $q, CameraService, $ionicPlatform,
                                                         $state, DataService, $scope, $localStorage,
                                                         $sessionStorage, $ionicModal, $ionicPopup,
@@ -99,7 +100,7 @@
 
         vm.saveReport = function() {
             var reports = $scope.$storage.reports;
-            if (!reports){
+            if (!reports) {
                 reports = [];
             }
             reports.push(vm.report);
@@ -128,14 +129,14 @@
         $scope.$on('$destroy', function() {
             $scope.surveyModal.remove();
         });
-        // Execute action on hide modal
-            $scope.$on('surveyModal.hidden', function() {
-        // Execute action
-        });
-        // Execute action on remove modal
-            $scope.$on('surveyModal.removed', function() {
-        // Execute action
-        });
+        // // Execute action on hide modal
+        // $scope.$on('surveyModal.hidden', function() {
+        //     // Execute action
+        // });
+        // // Execute action on remove modal
+        // $scope.$on('surveyModal.removed', function() {
+        //     // Execute action
+        // });
 
         // Section Info Modal
         $ionicModal.fromTemplateUrl('app/inspection/info-modal.html', {
@@ -159,24 +160,24 @@
         $scope.$on('$destroy', function() {
             $scope.infoModal.remove();
         });
-        // Execute action on hide modal
-            $scope.$on('infoModal.hidden', function() {
-        // Execute action
-        });
-        // Execute action on remove modal
-            $scope.$on('infoModal.removed', function() {
-        // Execute action
-        });
+        // // Execute action on hide modal
+        // $scope.$on('infoModal.hidden', function() {
+        //     // Execute action
+        // });
+        // // Execute action on remove modal
+        // $scope.$on('infoModal.removed', function() {
+        //     // Execute action
+        // });
 
         $scope.showInfo = function(section, info) {
-           var alertPopup = $ionicPopup.alert({
-             title: section,
-             template: info
-           });
-           alertPopup.then(function(res) {
-             console.log('Info Panel closed');
-           });
-         };
+            var alertPopup = $ionicPopup.alert({
+                title: section,
+                template: info
+            });
+            alertPopup.then(function(res) {
+                console.log('Info Panel closed');
+            });
+        };
 
         $scope.showConfirm = function() {
             var confirmPopup = $ionicPopup.confirm({
@@ -184,7 +185,7 @@
                 template: 'Are you sure you want to remove this image?'
             });
             confirmPopup.then(function(res) {
-                if(res) {
+                if (res) {
                     logger.info('Image removed');
                 } else {
                     logger.info('You do not want to remove this image');

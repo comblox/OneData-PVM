@@ -1,0 +1,17 @@
+<ion-modal-view>
+    <ion-header-bar>
+            <h1 class="title">Inspection Images</h1>
+            <button class="button button-clear button-primary" ng-click="surveyModal.hide()">Close</button>
+    </ion-header-bar>
+   <ion-content>
+        <h4 class="empty-content" ng-show="vm.report.images =='' ">You have no images, click the button below to add images</h4>
+        <a ng-click="showConfirm()" ng-repeat="img in vm.report.images">
+            <img ng-src="{{img}}" class="survey-thumbnail">
+        </a>
+    </ion-content>
+<ion-footer-bar class="bar-positive tabs ion-footer">
+    <a class="tab-item" ng-click="vm.getImage()">
+        <i class="ion icon ion-ios-camera-outline ion-footer-icon"></i>
+    </a>
+</ion-footer-bar>
+</ion-modal-view>
