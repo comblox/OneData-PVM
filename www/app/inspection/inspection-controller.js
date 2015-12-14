@@ -192,13 +192,14 @@
             });
         };
 
-        $scope.showConfirm = function() {
+        $scope.showConfirm = function(index) {
             var confirmPopup = $ionicPopup.confirm({
                 title: 'Remove Image',
                 template: 'Are you sure you want to remove this image?'
             });
             confirmPopup.then(function(res) {
                 if (res) {
+                    vm.report.images.splice(index, 1);
                     logger.info('Image removed');
                 } else {
                     logger.info('You do not want to remove this image');
