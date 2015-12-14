@@ -91,7 +91,7 @@
                 vm.report.images.push('images/original/JPEG/example7.jpg');
                 vm.report.images.push('images/original/JPEG/example8.jpg');
             }
-            else{
+            else {
                 CameraService.camera(vm.storage)
                 .then(
                     function(img) {
@@ -103,7 +103,6 @@
                     });
             }
         };
-
 
         vm.deleteReport = function() {
             delete $scope.$storage.report;
