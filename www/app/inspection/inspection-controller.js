@@ -79,8 +79,19 @@
                 });
         }
 
-        $ionicPlatform.ready(function() {
-            vm.getImage = function() {
+        vm.getImage = function() {
+            if (!navigator.camera) {
+                logger.info('Camera API not supported');
+                vm.report.images.push('images/original/JPEG/example1.jpg');
+                vm.report.images.push('images/original/JPEG/example2.jpg');
+                vm.report.images.push('images/original/JPEG/example3.jpg');
+                vm.report.images.push('images/original/JPEG/example4.jpg');
+                vm.report.images.push('images/original/JPEG/example5.jpg');
+                vm.report.images.push('images/original/JPEG/example6.jpg');
+                vm.report.images.push('images/original/JPEG/example7.jpg');
+                vm.report.images.push('images/original/JPEG/example8.jpg');
+            }
+            else{
                 CameraService.camera(vm.storage)
                 .then(
                     function(img) {
@@ -90,8 +101,9 @@
                     function(err) {
                         logger.error('Rejected: ' + err);
                     });
-            };
-        });
+            }
+        };
+
 
         vm.deleteReport = function() {
             delete $scope.$storage.report;
