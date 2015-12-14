@@ -4,7 +4,7 @@
             <button class="button button-clear button-primary" ng-click="surveyModal.hide()">Close</button>
     </ion-header-bar>
    <ion-content>
-        <h4 class="empty-content" ng-show="vm.report.images =='' ">You have no images, click the button below to add images</h4>
+        <h4 class="empty-content" ng-show="vm.report.images =='' ">There are no images, click the button below to add images</h4>
         <a ng-click="showConfirm()" ng-repeat="img in vm.report.images">
             <img ng-src="{{img}}" class="survey-thumbnail">
         </a>

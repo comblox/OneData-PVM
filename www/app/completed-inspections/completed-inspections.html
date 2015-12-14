@@ -1,4 +1,4 @@
-<ion-view view-title="Completed Inspections">
+<ion-view view-title="Inspections">
     <ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-ios-trash-outline"
                      ng-click="vm.showDelete = !vm.showDelete">
@@ -24,7 +24,7 @@
         <div class="item item-divider">
             Completed
         </div>
-        <h4 class="empty-inspections" ng-show="!vm.inspections || vm.inspections == '' ">You have not uploaded any Inspections</h4>
+        <h4 class="empty-inspections" ng-show="!vm.inspections || vm.inspections == '' ">No Inspections have been uploaded</h4>
         <ion-list>
             <ion-item class="item item-thumbnail-left"
                     ng-repeat="i in vm.inspections">

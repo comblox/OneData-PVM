@@ -1,6 +1,6 @@
 /**
- * @ngdoc AccountController
- * @name AccountController
+ * @ngdoc ProjectsController
+ * @name ProjectsController
  * @description This is the controller for the account view
  *
  */
@@ -9,15 +9,15 @@
 
     angular
         .module('app')
-        .controller('AccountController', AccountController);
+        .controller('ProjectsController', ProjectsController);
 
-    AccountController.$inject = ['logger', '$q', 'DataService'];
+    ProjectsController.$inject = ['logger', '$q', 'DataService'];
     /* @ngInject */
 
-    function AccountController(logger, $q, DataService) {
+    function ProjectsController(logger, $q, DataService) {
         /*jshint validthis: true */
         var vm = this;
-        vm.title = 'AccountController';
+        vm.title = 'ProjectsController';
 
         vm.projects = '';
         vm.wifiOnly = true;
@@ -35,7 +35,7 @@
         function activate() {
             var promises = [getData()];
             return $q.all(promises).then(function() {
-                logger.info('Activated AccountController View');
+                logger.info('Activated ProjectsController View');
             });
         }
 

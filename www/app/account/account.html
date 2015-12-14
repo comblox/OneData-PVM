@@ -1,4 +1,4 @@
-<ion-view view-title="aBV Projects">
+<ion-view view-title="Settings">
   <ion-content>
     <!--<div class="bar bar-header item-input-inset">
       <label class="item-input-wrapper">
@@ -6,20 +6,43 @@
         <input type="search" placeholder="Search">
       </label>
     </div>-->
-    <ul class="list">
-    <div class="item item-divider">
-      My Projects
+   <div class="item item-divider">
+      Network
     </div>
-      <li class="item item-toggle" ng-repeat="p in vm.projects">
-        <h4>{{p.name}}</h4>
-        <p>Project Number: {{p.number}}</p>
-        <label class="toggle toggle-positive" >
-          <input type="checkbox" ng-checked="p.show">
-          <div class="track">
-            <div class="handle"></div>
-          </div>
-        </label>
-      </li>
-    </ul>
+      <ion-list >
+      <ion-item class="item item-toggle">
+                <h2>Upload reports over Wifi only</h2>
+                <p>Prevents uploading over 3G and 4G</p>
+                <p></p>
+                <label class="toggle toggle-positive" >
+                  <input type="checkbox" ng-checked="vm.wifiOnly">
+                  <div class="track">
+                    <div class="handle"></div>
+                  </div>
+                </label>
+      </ion-item>
+      </ion-list>
+    <div class="item item-divider">
+      Projects
+    </div>
+      <ion-list >
+      <ion-item class="item item-icon-right"
+                href="#/tab/projects">
+                <h2>Add Projects</h2>
+                <p>Add Projects to your Dashboard</p>
+                <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      </ion-list>
+    <div class="item item-divider">
+      Inspections
+    </div>
+      <ion-list >
+      <ion-item class="item item-icon-right"
+                href="#/tab/completed">
+                <h2>Completed Inspections</h2>
+                <p>View Completed Inspections</p>
+                <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      </ion-list>
   </ion-content>
 </ion-view>

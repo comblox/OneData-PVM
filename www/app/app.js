@@ -73,6 +73,16 @@
             }
         })
 
+        .state('tab.projetcs', {
+            url: '/projects',
+            views: {
+                'tab-account': {
+                    templateUrl: 'app/projects/projects.html',
+                    controller: 'ProjectsController as vm'
+                }
+            }
+        })
+
         .state('tab.account', {
             url: '/account',
             views: {
