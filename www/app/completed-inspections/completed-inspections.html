@@ -8,7 +8,9 @@
         <div class="item item-divider">
           Pending Upload
         </div>
-        <h4 class="empty-inspections" ng-show="!vm.pending || vm.pending == '' ">You have no Inspections waiting to upload</h4>
+        <h4 class="empty-inspections" ng-show="!vm.pending || vm.pending == '' ">
+            You have no Inspections waiting to upload
+        </h4>
         <ion-list show-delete="vm.showDelete">
             <ion-item class="item item-thumbnail-left"
                     ng-repeat="i in vm.pending">

@@ -11,15 +11,16 @@
         .module('app')
         .controller('ProjectsController', ProjectsController);
 
-    ProjectsController.$inject = ['logger', '$q', 'DataService'];
+    ProjectsController.$inject = ['logger', '$q', 'DataService', '$localStorage'];
     /* @ngInject */
 
-    function ProjectsController(logger, $q, DataService) {
+    function ProjectsController(logger, $q, DataService, $localStorage) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'ProjectsController';
 
         vm.projects = '';
+        vm.myProjects = $localStorage.myProjects;
         vm.wifiOnly = true;
 
         activate();
@@ -56,6 +57,43 @@
                     logger.error('There was an error quering Dataservice ' + err);
                 });
         }
+
+        /**
+        * @ngdoc function
+        * @name ControllerController:addToMyProjects
+        * @kind function
+        * @description This function adds a project to the user's favourites
+        */
+        vm.addToMyProjects = function(id) {
+            // Check if we have a cache in localstorage
+            if (!$localStorage.myProjects) {
+                $localStorage.myProjects = [];
+            }
+
+            var project = _.find($localStorage.projects, {'id': id});
+            project.show = true;
+
+            var index = _.indexOf($localStorage.myProjects,
+                               _.find($localStorage.myProjects, {'id': id}));
+
+            if (index > 0) {
+                $localStorage.myProjects.splice(index, 1);
+            }
+
+            $localStorage.myProjects.push(project);
+        };
+
+        /**
+        * @ngdoc function
+        * @name ControllerController:removeMyProjects
+        * @kind function
+        * @description This function removes a project to the user's favourites
+        */
+        vm.removeMyProjects = function(id) {
+            var index = _.indexOf($localStorage.myProjects,
+                               _.find($localStorage.myProjects, {'id': id}));
+            $localStorage.myProjects.splice(index, 1);
+        };
 
     }
 })();

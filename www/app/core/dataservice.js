@@ -11,12 +11,15 @@
         .module('app')
         .factory('DataService', DataService);
 
-    DataService.$inject = ['MockProjectsService', 'MockReportService'];
-    function DataService(MockProjectsService, MockReportService) {
+    DataService.$inject = ['$q', 'logger', 'MockProjectsService', 'MockReportService',
+                                        'Azureservice', '$localStorage','$sessionStorage'];
+    function DataService($q, logger, MockProjectsService, MockReportService,
+                                      Azureservice, $localStorage, $sessionStorage) {
 
         var service = {
             getProjects:getProjects,
-            getReport: getReport
+            getReport: getReport,
+            refreshProjects: refreshProjects
         };
 
         return service;
@@ -24,11 +27,46 @@
         ////////////////
 
         function getProjects() {
-            return MockProjectsService.query();
+            return $q(function (resolve, reject) {
+                if ($localStorage.projects) {
+                    resolve($localStorage.projects);
+                } else {
+                    return (refreshProjects())
+                    .then(
+                    function(data) {
+                        $localStorage.projects = data;
+                        resolve(data);
+                    },
+                    function(err) {
+                        logger.error('There was an error quering Azure ' + err);
+                        reject();
+                    });
+                }
+            });
         }
 
         function getReport() {
             return MockReportService.query();
+        }
+
+        function refreshProjects() {
+            return $q(function (resolve, reject) {
+                // Query Azure
+                Azureservice.query('Projects', {
+                    // Criteria Here for your query
+                    skip: 0,
+                    take: 500
+                }).then(
+                    function(data) {
+                        logger.log('Project Data returned from the database: ' +
+                        JSON.stringify(data[0]));
+                        resolve(data);
+                    },
+                    function(err) {
+                        logger.error('There was an error quering Azure ' + err);
+                        reject();
+                    });
+            });
         }
 
     }

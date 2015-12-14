@@ -7,6 +7,8 @@
   "dependencies": {
     "ngCordova": "~0.1.23-alpha",
     "ngstorage": "~0.3.10",
-    "angularLocalStorage": "ngStorage#~0.3.2"
+    "angularLocalStorage": "ngStorage#~0.3.2",
+    "angular-azure-mobile-service": "~1.3.10",
+    "lodash": "~3.10.1"
   }
 }

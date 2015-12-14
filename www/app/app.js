@@ -11,8 +11,14 @@
     .module('app', [
         'ionic',
         'ngCordova',
-        'ngStorage'
+        'ngStorage',
+        'azure-mobile-service.module'
         ])
+
+    .constant('AzureMobileServiceClient', {
+        API_URL : 'https://traffic-management-application.azure-mobile.net/',
+        API_KEY : 'DtFNrKXDARMpljivKIUtqqxuVEqgcX72',
+    })
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
