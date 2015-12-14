@@ -11,10 +11,12 @@
         .module('app')
         .controller('ProjectsController', ProjectsController);
 
-    ProjectsController.$inject = ['logger', '$q', 'DataService', '$localStorage'];
+    ProjectsController.$inject = ['logger', '$q', 'DataService', '$localStorage',
+                                                 '$ionicScrollDelegate', '$ionicLoading'];
     /* @ngInject */
 
-    function ProjectsController(logger, $q, DataService, $localStorage) {
+    function ProjectsController(logger, $q, DataService, $localStorage,
+                                               $ionicScrollDelegate, $ionicLoading) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'ProjectsController';
@@ -47,14 +49,19 @@
         * @description This function returns the data model from the dataservice
         */
         function getData() {
+            $ionicLoading.show({
+                template: 'Loading projects from the server ...'
+            });
             DataService.getProjects()
             .then(
                 function(data) {
                     vm.projects = data;
                     logger.info('Returned Projects from DataService ');
+                    $ionicLoading.hide();
                 },
                 function(err) {
                     logger.error('There was an error quering Dataservice ' + err);
+                    $ionicLoading.hide();
                 });
         }
 
@@ -93,6 +100,28 @@
             var index = _.indexOf($localStorage.myProjects,
                                _.find($localStorage.myProjects, {'id': id}));
             $localStorage.myProjects.splice(index, 1);
+        };
+
+        /**
+        * @ngdoc function
+        * @name ControllerController:scrollToTop
+        * @kind function
+        * @description This function removes a project fromt he user's home screen
+        */
+        vm.scrollToTop = function(id) {
+            $ionicScrollDelegate.scrollTop();
+        };
+
+        /**
+        * @ngdoc function
+        * @name ControllerController:toggleHomeScreen
+        * @kind function
+        * @description This function removes a project fromt he user's home screen
+        */
+        vm.toggleHomeScreen = function(id) {
+            var index = _.indexOf($localStorage.myProjects,
+                               _.find($localStorage.myProjects, {'id': id}));
+            $localStorage.myProjects[index].show = !$localStorage.myProjects[index].show;
         };
 
     }

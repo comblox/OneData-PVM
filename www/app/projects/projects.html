@@ -1,4 +1,4 @@
-<ion-view view-title="aBV Projects" cache-view="false">
+<ion-view view-title="aBV Projects">
 <ion-nav-buttons side="right">
     <button class="button button-icon button-clear ion-ios-trash-outline"
                  ng-hide="vm.showSearch"
@@ -7,7 +7,7 @@
 </ion-nav-buttons>
 <ion-nav-buttons side="secondary">
     <button class="button button-icon button-clear ion-ios-search-strong"
-                  ng-click="vm.showSearch = !vm.showSearch; vm.showDelete = false">
+                  ng-click="vm.showSearch = !vm.showSearch; vm.showDelete = false; vm.scrollToTop()">
     </button>
 </ion-nav-buttons>
 <ion-content>
@@ -36,7 +36,7 @@
             <h4>{{p.projectName}}</h4>
             <p>Project Number: {{p.projectId}}</p>
             <label class="toggle toggle-positive" >
-                <input type="checkbox" ng-checked="p.show" ng-click="">
+                <input type="checkbox" ng-checked="p.show" ng-click="vm.toggleHomeScreen(p.id)">
                 <div class="track">
                    <div class="handle"></div>
                 </div>
@@ -48,7 +48,7 @@
     </div>
     <ion-list ng-show="vm.showSearch">
         <ion-item class="item"
-                        ng-click="vm.addToMyProjects(p.id); vm.showSearch = !vm.showSearch"
+                        ng-click="vm.addToMyProjects(p.id); vm.showSearch = !vm.showSearch; vm.scrollToTop()"
                         ng-repeat="p in vm.projects | orderBy: 'projectId' | filter:search:strict ">
             <h4>{{p.projectName}}</h4>
             <p>Project Number: {{p.projectId}}</p>

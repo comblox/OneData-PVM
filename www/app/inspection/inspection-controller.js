@@ -13,15 +13,15 @@
 
     InspectionController.$inject = ['logger', '$q', 'CameraService', '$ionicPlatform',
                                                           '$state', 'DataService', '$scope',
-                                                          '$localStorage','$sessionStorage',
+                                                          '$localStorage','GeolocationService',
                                                           '$ionicModal', '$ionicPopup',
                                                           '$stateParams'];
     /* @ngInject */
     /*jshint -W072 */
     function InspectionController(logger, $q, CameraService, $ionicPlatform,
                                                         $state, DataService, $scope, $localStorage,
-                                                        $sessionStorage, $ionicModal, $ionicPopup,
-                                                        $stateParams) {
+                                                        GeolocationService, $ionicModal,
+                                                        $ionicPopup, $stateParams) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'InspectionController';
@@ -44,7 +44,7 @@
         * @description This function
         */
         function activate() {
-            var promises = [getData()];
+            var promises = [getData(), getLocation()];
             return $q.all(promises).then(function() {
                 logger.info('Activated InspectionController View');
             });
@@ -105,6 +105,20 @@
                     });
             }
         };
+
+        function getLocation() {
+            return GeolocationService.geoLocation().then(
+                function (position) {
+                    console.log('Resolved: Geo Location was a success');
+                    vm.report.geo.lat = position.coords.latitude;
+                    vm.report.geo.long = position.coords.longitude;
+                    vm.lat = 'Latitude: ' + parseFloat(position.coords.latitude).toFixed(4);
+                    vm.long = '| Longtitude: ' + parseFloat(position.coords.longitude).toFixed(4);
+                },
+                function (err) {
+                    console.log('Rejected: Geo Location failed' + err);
+                });
+        }
 
         vm.deleteReport = function() {
             delete $scope.$storage.report;

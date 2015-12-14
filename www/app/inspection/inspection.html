@@ -4,12 +4,12 @@
     </ion-nav-buttons>
     <ion-content>
         <div class="card">
-            <div class="item">
+            <div class="item item-text-wrap">
                 <div class="summary-title">
                     {{vm.projectName}}
                 </div>
                 <div class="summary-detail">
-                    {{vm.reportDate | date:"dd MMMM yyyy"}} | Long: Lat:
+                    {{vm.reportDate | date:"dd MMMM yyyy"}} {{vm.long}} {{vm.lat}}
                 </div>
             </div>
         </div>
