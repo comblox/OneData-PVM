@@ -26,7 +26,7 @@
                     quality: 100,
                     destinationType: Camera.DestinationType.FILE_URI,
                     sourceType: Camera.PictureSourceType.CAMERA,
-                    allowEdit: true,
+                    allowEdit: false,
                     encodingType: Camera.EncodingType.JPEG,
                     popoverOptions: CameraPopoverOptions,
                     saveToPhotoAlbum: false

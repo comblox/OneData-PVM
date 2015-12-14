@@ -1,4 +1,4 @@
-<ion-view view-title="Inspections">
+<ion-view view-title="Inspections" cache-view="false">
     <ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-ios-trash-outline"
                      ng-click="vm.showDelete = !vm.showDelete">
@@ -16,6 +16,7 @@
                                        ng-click="vm.deleteInspection()">
                     </ion-delete-button>
                     <img ng-src="{{i.images[0] || 'images/abv-holder.png'}}">
+                    <h4>{{i.images[0]}}</h4>
                     <h4>{{i.projectTitle}}</h4>
                     <h4>Project Number: {{i.report.split('-')[0]}}</h4>
                     <h6>{{i.report.split('-')[1] | date:"MMMM dd yyyy 'at' h:mma"}}</h6>

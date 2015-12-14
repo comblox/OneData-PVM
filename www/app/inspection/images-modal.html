@@ -1,5 +1,5 @@
 <ion-modal-view>
-    <ion-header-bar>
+    <ion-header-bar class="bar-dark">
             <h1 class="title">Inspection Images</h1>
             <button class="button button-clear button-primary" ng-click="surveyModal.hide()">Close</button>
     </ion-header-bar>
@@ -9,7 +9,7 @@
             <img ng-src="{{img}}" class="survey-thumbnail">
         </a>
     </ion-content>
-<ion-footer-bar class="bar-positive tabs ion-footer">
+<ion-footer-bar class="bar-dark tabs ion-footer">
     <a class="tab-item" ng-click="vm.getImage()">
         <i class="ion icon ion-ios-camera-outline ion-footer-icon"></i>
     </a>
