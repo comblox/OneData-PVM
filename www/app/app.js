@@ -50,6 +50,13 @@
                     templateUrl: 'app/dashboard/dashboard.html',
                     controller: 'DashboardController as vm'
                 }
+            },
+            resolve : {
+                network : function($window) {
+                    if (!$window.localStorage['abv-network']) {
+                        $window.localStorage['abv-network'] = 'true';
+                    }
+                }
             }
         })
 
