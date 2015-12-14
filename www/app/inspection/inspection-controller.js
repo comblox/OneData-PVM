@@ -26,8 +26,10 @@
         var vm = this;
         vm.title = 'InspectionController';
 
+        vm.projectName = $stateParams.projectTitle;
         vm.questions = '';
         vm.report = '';
+        vm.reportDate = new Date();
 
         $scope.$storage = $localStorage;
 

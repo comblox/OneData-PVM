@@ -71,3 +71,26 @@ ion-tabs.tabs-color-active-stable .tab-item {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.summary-title {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.summary-detail {
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.card .item:first-child {
+    background-color: #387ef5;
+    color: white;
+}
+
+.item h2:last-child {
+    color: white;
+}
+
+.card .item {
+    color: #387ef5;
+}
