@@ -11,16 +11,20 @@
         .module('app')
         .controller('AccountController', AccountController);
 
-    AccountController.$inject = ['logger', '$q', 'DataService'];
+    AccountController.$inject = ['logger', '$q', 'DataService', '$scope',
+                                                 '$localStorage', '$sessionStorage'];
     /* @ngInject */
 
-    function AccountController(logger, $q, DataService) {
+    function AccountController(logger, $q, DataService, $scope,
+                                                $localStorage, $sessionStorage) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'AccountController';
 
         vm.projects = '';
-        vm.wifiOnly = true;
+
+        $scope.$storage = $localStorage;
+        vm.wifiOnly = $scope.$storage.network;
 
         activate();
 
@@ -56,6 +60,15 @@
                     logger.error('There was an error quering Dataservice ' + err);
                 });
         }
+
+        vm.updateNetwork = function () {
+            if ($scope.$storage.network === true) {
+                $scope.$storage.network = false;
+            }
+            else {
+                $scope.$storage.network = true;
+            }
+        };
 
     }
 })();
