@@ -36,7 +36,7 @@
                         var errorMsg = 'Error : ' + err.message;
                         console.log('unable to find location: ' + errorMsg);
                         reject('Geo location failed' + err);
-                });
+                    });
             });
         }
     }

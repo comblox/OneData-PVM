@@ -62,6 +62,7 @@
         "cordova": false,
         "Camera": false,
         "StatusBar": false,
-        "CameraPopoverOptions": false
+        "CameraPopoverOptions": false,
+        "LocalFileSystem": false
     }
 }
