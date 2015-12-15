@@ -102,3 +102,26 @@ ion-tabs.tabs-color-active-stable .tab-item {
 .item:last-child, .list-inset .item:last-child {
     background-color: white;
 }
+
+.row-login {
+    padding-top: 40%;
+}
+
+.divider {
+    border-right: #CACACA solid 1px;
+}
+
+.button-login {
+    font-size: 24px;
+    font-weight: 200;
+}
+
+.login-image {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+
+.login-wrapper {
+    padding-top: 65%
+}

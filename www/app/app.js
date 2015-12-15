@@ -43,6 +43,13 @@
 
         $stateProvider
 
+        .state('login', {
+            url: '/login',
+            abstract: false,
+            templateUrl: 'app/core/login.html',
+            controller: 'LoginController as vm'
+        })
+
         .state('tab', {
             url: '/tab',
             abstract: true,
@@ -106,7 +113,15 @@
             }
         });
 
-        $urlRouterProvider.otherwise('/tab/dash');
+        $urlRouterProvider.otherwise(function($injector, $location) {
+            var $state = $injector.get('$state');
+            var Azureservice = $injector.get('Azureservice');
+            if (!Azureservice.isLoggedIn()) {
+                $state.go('login');
+            } else {
+                $state.go('tab.dash');
+            }
+        });
 
     });
 
