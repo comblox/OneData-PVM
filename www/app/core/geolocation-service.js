@@ -3,8 +3,6 @@
 * @name GeolocationService
 * @description This is the Geolocation Service
 *
-* ###Additional information
-* You can write something else if you want.
 */
 (function() {
     'use strict';
