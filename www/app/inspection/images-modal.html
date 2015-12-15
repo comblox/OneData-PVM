@@ -8,6 +8,7 @@
         <a ng-click="showConfirm($index)" ng-repeat="img in vm.report.images">
             <img ng-src="{{img}}" class="survey-thumbnail">
         </a>
+        <pre>{{vm.report.images}}</pre>
     </ion-content>
 <ion-footer-bar class="bar-dark tabs ion-footer">
     <a class="tab-item" ng-click="vm.getImage()">

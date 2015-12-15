@@ -15,13 +15,14 @@
                                                           '$state', 'DataService', '$scope',
                                                           '$localStorage','GeolocationService',
                                                           '$ionicModal', '$ionicPopup',
-                                                          '$stateParams'];
+                                                          '$stateParams', '$cordovaFile'];
     /* @ngInject */
     /*jshint -W072 */
     function InspectionController(logger, $q, CameraService, $ionicPlatform,
                                                         $state, DataService, $scope, $localStorage,
                                                         GeolocationService, $ionicModal,
-                                                        $ionicPopup, $stateParams) {
+                                                        $ionicPopup, $stateParams,
+                                                        $cordovaFile) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'InspectionController';
@@ -30,6 +31,10 @@
         vm.questions = '';
         vm.report = '';
         vm.reportDate = new Date();
+
+        vm.directories = null;
+        vm.files = null;
+        vm.container = 'storage';
 
         $scope.$storage = $localStorage;
 
@@ -98,6 +103,7 @@
                 .then(
                     function(img) {
                         logger.info('Resolved: ' + img);
+                        console.log('Resolved: ' + img);
                         vm.report.images.push(img);
                     },
                     function(err) {
@@ -112,8 +118,8 @@
                     console.log('Resolved: Geo Location was a success');
                     vm.report.geo.lat = position.coords.latitude;
                     vm.report.geo.long = position.coords.longitude;
-                    vm.lat = 'Latitude: ' + parseFloat(position.coords.latitude).toFixed(4);
-                    vm.long = '| Longtitude: ' + parseFloat(position.coords.longitude).toFixed(4);
+                    vm.lat = '| Latitude: ' + parseFloat(position.coords.latitude).toFixed(4);
+                    vm.long = 'Longtitude: ' + parseFloat(position.coords.longitude).toFixed(4);
                 },
                 function (err) {
                     console.log('Rejected: Geo Location failed' + err);
