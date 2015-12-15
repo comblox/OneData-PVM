@@ -25,6 +25,7 @@
 
         $scope.$storage = $localStorage;
         vm.wifiOnly = $scope.$storage.network;
+        vm.imsReport = $scope.$storage.imsReport;
 
         activate();
 
@@ -61,12 +62,35 @@
                 });
         }
 
+        /**
+        * @ngdoc function
+        * @name ControllerController:updateNetwork
+        * @kind function
+        * @description This function toggles the status of the network connection
+        */
         vm.updateNetwork = function () {
             if ($scope.$storage.network === true) {
                 $scope.$storage.network = false;
             }
             else {
                 $scope.$storage.network = true;
+            }
+        };
+
+        /**
+        * @ngdoc function
+        * @name ControllerController:updateImsReport
+        * @kind function
+        * @description This function toggles whether we re using hte IMS version of
+        * the inspection report or the alternative version
+        */
+        vm.updateImsReport = function () {
+            $scope.$storage.report = '';
+            if ($scope.$storage.imsReport === true) {
+                $scope.$storage.imsReport = false;
+            }
+            else {
+                $scope.$storage.imsReport = true;
             }
         };
 

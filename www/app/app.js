@@ -69,6 +69,11 @@
                     if (!$window.localStorage['abv-network']) {
                         $window.localStorage['abv-network'] = 'true';
                     }
+                },
+                imsReport : function($window) {
+                    if (!$window.localStorage['abv-imsReport']) {
+                        $window.localStorage['abv-imsReport'] = 'true';
+                    }
                 }
             }
         })

@@ -1,0 +1,143 @@
+[
+   {
+      "author": "Paul Sutherland",
+      "report": "12345",
+      "projectTitle": "",
+      "images": [],
+      "geo": {
+         "lat": "",
+         "long": ""
+      },
+      "uploaded": false,
+      "questions": [
+         {
+            "title":"General",
+            "order":1,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Inspector to be in possession of current PVM Design drawing",
+                  "answer":""
+               },
+               {
+                  "question":"Has the Morning Inspection been carried out before 1030",
+                  "answer":""
+               },
+               {
+                  "question":"Has the Afternoon Inspection been carried out after 1500",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Signs",
+            "order":2,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Are all the signs in the positions indicated on the Design Drawing?",
+                  "answer":""
+               },
+               {
+                  "question":"Can all the signs be read by motorists/pedestrians.  (Check Cleanliness, Obstructions, Orientation)?",
+                  "answer":""
+               },
+               {
+                  "question":"Are any signs damaged?",
+                  "answer":""
+               },
+               {
+                  "question":"Are all signs weighted down and secured?",
+                  "answer":""
+               },
+               {
+                  "question":"Is the information board displayed?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Traffic Cones",
+            "order":3,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Are all the traffic cones in correct positions?",
+                  "answer":""
+               },
+               {
+                  "question":"Are all traffic cones clean and visible?",
+                  "answer":""
+               },
+               {
+                  "question":"Do all traffic cones have a reflective sleeve?",
+                  "answer":""
+               },
+               {
+                  "question":"Are any cones damaged?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Road Safety Lamps",
+            "order":4,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Are there road safety lamps present within the PVM?",
+                  "answer":""
+               },
+               {
+                  "question":"Are any lamps not working?",
+                  "answer":""
+               },
+               {
+                  "question":"Are all lamps clean and visible?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Traffic Lights",
+            "order":5,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Are all traffic lights operating? (observe 2 full cycles of lights changing)?",
+                  "answer":""
+               },
+               {
+                  "question":"Are pedestrian routes clearly indicated?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Pedestrian Routes",
+            "order":6,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Are pedestrian routes clearly indicated?",
+                  "answer":""
+               },
+               {
+                  "question":"Are pedestrian routes unobstructed and a minimum of 1m wide?",
+                  "answer":""
+               },
+               {
+                  "question":"Do temporary footway’s in carriageway have barriers and ramps for access?",
+                  "answer":""
+               }
+            ]
+         }
+      ]
+   }
+]
