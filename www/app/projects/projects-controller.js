@@ -12,11 +12,11 @@
         .controller('ProjectsController', ProjectsController);
 
     ProjectsController.$inject = ['logger', '$q', 'DataService', '$localStorage',
-                                                 '$ionicScrollDelegate', '$ionicLoading'];
+                                                 '$ionicScrollDelegate', '$ionicLoading', '$scope'];
     /* @ngInject */
 
     function ProjectsController(logger, $q, DataService, $localStorage,
-                                               $ionicScrollDelegate, $ionicLoading) {
+                                               $ionicScrollDelegate, $ionicLoading, $scope) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'ProjectsController';
@@ -36,8 +36,12 @@
         * @description This function
         */
         function activate() {
+            $ionicLoading.show({
+                template: 'Loading projects from the server ...'
+            });
             var promises = [getData()];
             return $q.all(promises).then(function() {
+                $ionicLoading.hide();
                 logger.info('Activated ProjectsController View');
             });
         }
@@ -49,19 +53,14 @@
         * @description This function returns the data model from the dataservice
         */
         function getData() {
-            $ionicLoading.show({
-                template: 'Loading projects from the server ...'
-            });
             DataService.getProjects()
             .then(
                 function(data) {
                     vm.projects = data;
                     logger.info('Returned Projects from DataService ');
-                    $ionicLoading.hide();
                 },
                 function(err) {
                     logger.error('There was an error quering Dataservice ' + err);
-                    $ionicLoading.hide();
                 });
         }
 
@@ -88,6 +87,20 @@
             }
 
             $localStorage.myProjects.push(project);
+        };
+
+        /**
+        * @ngdoc function
+        * @name ControllerController:doRefresh
+        * @kind function
+        * @description This function refreshes the projects from the database
+        */
+        vm.doRefresh = function() {
+            var promises = [getData()];
+            return $q.all(promises).then(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+                logger.info('Updated the projects');
+            });
         };
 
         /**
