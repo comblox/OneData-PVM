@@ -11,15 +11,19 @@
         .module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['logger', '$q', 'DataService', '$localStorage'];
+    DashboardController.$inject = ['logger', '$q', 'DataService', '$localStorage', '$state'];
     /* @ngInject */
 
-    function DashboardController(logger, $q, DataService, $localStorage) {
+    function DashboardController(logger, $q, DataService, $localStorage, $state) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'DashboardController';
 
         vm.myProjects = $localStorage.myProjects;
+
+        vm.addProjects = function() {
+            $state.go('tab.projects');
+        };
 
     }
 })();

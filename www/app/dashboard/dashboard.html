@@ -1,8 +1,22 @@
 <ion-view view-title="aBV Traffic Management">
   <ion-content>
     <div class="item item-divider">
-        My Projects
+        <div>
+            My Projects
+        </div>
+        <h6>
+            (click a project to begin an Inspection)
+        </h6>
     </div>
+    <div>
+        <h4 class="empty-content"
+               ng-if="vm.myProjects == '' "
+               ng-hide="vm.showSearch"
+               ng-click="vm.addProjects()">
+               <i class="button-clear ion-plus-round"></i>Add your projects to begin
+        </h4>
+    </div>
+
     <ion-item class="item-remove-animate item-icon-right"
                     type="item-text-wrap"
                     href="#/tab/inspection/{{p.id}}/{{p.projectName}}"

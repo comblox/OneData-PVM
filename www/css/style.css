@@ -94,3 +94,11 @@ ion-tabs.tabs-color-active-stable .tab-item {
 .card .item {
     color: #387ef5;
 }
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
+    margin-top: 2px !important;
+}
+
+.item:last-child, .list-inset .item:last-child {
+    background-color: white;
+}

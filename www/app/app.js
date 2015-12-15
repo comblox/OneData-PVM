@@ -86,7 +86,7 @@
             }
         })
 
-        .state('tab.projetcs', {
+        .state('tab.projects', {
             url: '/projects',
             views: {
                 'tab-account': {
