@@ -28,7 +28,7 @@
     })
 
     .constant('api', {
-        url : 'https://onedata.azurewebsites.net',
+        url : 'http://onedata.azurewebsites.net',
     })
 
     .config(['$localStorageProvider',

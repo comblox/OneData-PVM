@@ -40,7 +40,7 @@
                         resolve(data);
                     },
                     function(err) {
-                        logger.error('There was an error quering Azure ' + err);
+                        logger.error('There was an error quering Azure ' + JSON.stringify(err));
                         reject();
                     });
                 }
@@ -60,7 +60,7 @@
                 // Query Azure
                 $http({
                     method: 'GET',
-                    url: api.url + '/ projects'
+                    url: api.url + '/projects'
                 }).then(
                 function successCallback(data) {
                     resolve(data.data);
