@@ -11,14 +11,8 @@
     .module('app', [
         'ionic',
         'ngCordova',
-        'ngStorage',
-        'azure-mobile-service.module'
+        'ngStorage'
         ])
-
-    .constant('AzureMobileServiceClient', {
-        API_URL : 'https://traffic-management-application.azure-mobile.net/',
-        API_KEY : 'DtFNrKXDARMpljivKIUtqqxuVEqgcX72',
-    })
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -31,6 +25,10 @@
                 StatusBar.styleLightContent();
             }
         });
+    })
+
+    .constant('api', {
+        url : 'https://onedata.azurewebsites.net',
     })
 
     .config(['$localStorageProvider',
@@ -118,15 +116,7 @@
             }
         });
 
-        $urlRouterProvider.otherwise(function($injector, $location) {
-            var $state = $injector.get('$state');
-            var Azureservice = $injector.get('Azureservice');
-            if (!Azureservice.isLoggedIn()) {
-                $state.go('login');
-            } else {
-                $state.go('tab.dash');
-            }
-        });
+        $urlRouterProvider.otherwise('tab/dash');
 
     });
 

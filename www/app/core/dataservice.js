@@ -12,11 +12,11 @@
         .factory('DataService', DataService);
 
     DataService.$inject = ['$q', 'logger', 'MockProjectsService', 'MockReportService',
-                                        'Azureservice', '$localStorage',
-                                        'MockAlternativeReportService'];
+                                        '$localStorage', 'MockAlternativeReportService', '$http',
+                                        'api'];
     function DataService($q, logger, MockProjectsService, MockReportService,
-                                      Azureservice, $localStorage,
-                                      MockAlternativeReportService) {
+                                      $localStorage, MockAlternativeReportService, $http,
+                                      api) {
 
         var service = {
             getProjects:getProjects,
@@ -58,20 +58,17 @@
         function refreshProjects() {
             return $q(function (resolve, reject) {
                 // Query Azure
-                Azureservice.query('Projects', {
-                    // Criteria Here for your query
-                    skip: 0,
-                    take: 500
+                $http({
+                    method: 'GET',
+                    url: api.url + '/ projects'
                 }).then(
-                    function(data) {
-                        logger.log('Project Data returned from the database: ' +
-                        JSON.stringify(data[0]));
-                        resolve(data);
-                    },
-                    function(err) {
-                        logger.error('There was an error quering Azure ' + err);
-                        reject();
-                    });
+                function successCallback(data) {
+                    resolve(data.data);
+                },
+                function errorCallback(err) {
+                    console.log('Error fetching data from database: ' + err);
+                    reject(err);
+                });
             });
         }
 

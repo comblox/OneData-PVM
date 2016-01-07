@@ -11,10 +11,10 @@
         .module('app')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$q', 'logger', '$state', 'Azureservice'];
+    LoginController.$inject = ['$q', 'logger', '$state'];
     /* @ngInject */
 
-    function LoginController($q, logger, $state, Azureservice) {
+    function LoginController($q, logger, $state) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'LoginController';
@@ -27,14 +27,14 @@
         * @kind function
         * @description This function logs the user into Azure AD
         */
-        vm.login = function() {
-            Azureservice.login('aad')
-                .then(function() {
-                    console.log('Login successful');
-                    $state.go('tab.dash');
-                }, function(err) {
-                    console.error('Azure Error: ' + err);
-                });
-        };
+        // vm.login = function() {
+        //     Azureservice.login('aad')
+        //         .then(function() {
+        //             console.log('Login successful');
+        //             $state.go('tab.dash');
+        //         }, function(err) {
+        //             console.error('Azure Error: ' + err);
+        //         });
+        // };
     }
 })();

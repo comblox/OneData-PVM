@@ -11,12 +11,10 @@
         .module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['logger', '$q', 'DataService', '$localStorage', '$state',
-                                                      'Azureservice'];
+    DashboardController.$inject = ['logger', '$q', 'DataService', '$localStorage', '$state'];
     /* @ngInject */
 
-    function DashboardController(logger, $q, DataService, $localStorage, $state,
-                                                    Azureservice) {
+    function DashboardController(logger, $q, DataService, $localStorage, $state) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'DashboardController';
@@ -50,12 +48,12 @@
         * @kind function
         * @description This function logs the user out of Azure AD
         */
-        vm.logout = function() {
-            console.log('User is logged in: ' + Azureservice.isLoggedIn());
-            Azureservice.logout();
-            console.log('User is logged in: ' + Azureservice.isLoggedIn());
-            $state.go('login');
-        };
+        // vm.logout = function() {
+        //     console.log('User is logged in: ' + Azureservice.isLoggedIn());
+        //     Azureservice.logout();
+        //     console.log('User is logged in: ' + Azureservice.isLoggedIn());
+        //     $state.go('login');
+        // };
 
     }
 })();
