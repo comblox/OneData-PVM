@@ -102,8 +102,7 @@
                 CameraService.camera(vm.storage)
                 .then(
                     function(img) {
-                        logger.info('Resolved: ' + JSON.stringify(img));
-                        console.log('Resolved: ' + JSON.stringify(img.nativeURL));
+                        logger.info('Resolved: ' + JSON.stringify(img.nativeURL));
                         vm.report.images.push(img.nativeURL);
                     },
                     function(err) {

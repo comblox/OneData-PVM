@@ -6,7 +6,7 @@
         .factory('CameraService', CameraService);
 
     /* @ngInject */
-    function CameraService($cordovaCamera, $q, AppFileStructure) {
+    function CameraService($cordovaCamera, $q, logger, AppFileStructure) {
 
         var service = {
             camera: camera
@@ -42,27 +42,27 @@
                         moveImage,
                         function(imageData) {
                             // We can upload here: $rootScope.imageUpload=imageData;
-                            console.log('ImageData from the camera: ' + imageData);
+                            logger.success('ImageData from the camera: ' + imageData);
                         },
                         function(err) {
-                            console.error(JSON.stringify(err));
+                            logger.error(JSON.stringify(err));
                         });
 
                 function moveImage(imageData) {
-                    console.log('Begin moving image to persistent storage');
-                    console.log(imageData);
+                    logger.info('Begin moving image to persistent storage');
+                    logger.info(imageData);
                     window.resolveLocalFileSystemURL(imageData, success, errorHandler);
                 }
 
                 function success(entry) {
-                    console.log('Successfully returned the file system');
+                    logger.success('Successfully returned the file system');
 
                     //new file name
                     window.requestFileSystem(
                         LocalFileSystem.PERSISTENT,
                         0,
                         function(fileSys) {
-                            console.log('Created new folder');
+                            logger.success('Created new folder');
 
                             //The folder is created if doesn't exist
                             fileSys.root.getDirectory(
@@ -72,13 +72,13 @@
                                     exclusive: false
                                 },
                                 function(directory) {
-                                    console.log(
+                                    logger.info(
                                         'Beginning to move file to: ' + JSON.stringify(directory)
                                     );
 
                                     entry.moveTo(directory, imageName,  successMove, errorHandler);
 
-                                    console.log(
+                                    logger.success(
                                         'Completed the move to: ' + JSON.stringify(directory)
                                     );
                                 },
@@ -89,12 +89,12 @@
 
                 function successMove(entry) {
                     //I do my insert with 'entry.fullPath' as for the path
-                    console.log('File move was a success: ' + JSON.stringify(entry));
+                    logger.success('File move was a success: ' + JSON.stringify(entry));
                     deferred.resolve(entry);
                 }
 
                 function errorHandler(err) {
-                    console.log('Image Capture failure: '  + JSON.stringify(err));
+                    logger.error('Image Capture failure: '  + JSON.stringify(err));
                     deferred.reject('Image Capture failure: ' + JSON.stringify(err));
                 }
             }, false);
