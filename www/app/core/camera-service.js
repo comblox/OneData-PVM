@@ -50,7 +50,7 @@
 
                 function moveImage(imageData) {
                     logger.info('Begin moving image to persistent storage');
-                    logger.info(imageData);
+                    logger.info('Image data from camera: ' + imageData);
                     window.resolveLocalFileSystemURL(imageData, success, errorHandler);
                 }
 
@@ -73,13 +73,15 @@
                                 },
                                 function(directory) {
                                     logger.info(
-                                        'Beginning to move file to: ' + JSON.stringify(directory)
+                                        'Beginning to move file to: ' +
+                                        JSON.stringify(directory.nativeURL)
                                     );
 
                                     entry.moveTo(directory, imageName,  successMove, errorHandler);
 
                                     logger.success(
-                                        'Completed the move to: ' + JSON.stringify(directory)
+                                        'Completed the move to: ' +
+                                        JSON.stringify(directory.nativeURL)
                                     );
                                 },
                                 errorHandler);
@@ -89,7 +91,7 @@
 
                 function successMove(entry) {
                     //I do my insert with 'entry.fullPath' as for the path
-                    logger.success('File move was a success: ' + JSON.stringify(entry));
+                    logger.success('File move was a success: ' + JSON.stringify(entry.nativeURL));
                     deferred.resolve(entry);
                 }
 
