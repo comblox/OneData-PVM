@@ -102,9 +102,9 @@
                 CameraService.camera(vm.storage)
                 .then(
                     function(img) {
-                        logger.info('Resolved: ' + img);
-                        console.log('Resolved: ' + img);
-                        vm.report.images.push(img);
+                        logger.info('Resolved: ' + JSON.stringify(img));
+                        console.log('Resolved: ' + JSON.stringify(img.nativeURL));
+                        vm.report.images.push(img.nativeURL);
                     },
                     function(err) {
                         logger.error('Rejected: ' + err);

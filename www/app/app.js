@@ -14,15 +14,30 @@
         'ngStorage'
         ])
 
-    .run(function($ionicPlatform) {
+    .constant('AppFileStructure', {
+        newImages : 'images',
+        uploadedImages : 'uploaded'
+    })
+
+    .run(function($ionicPlatform, AppFileStructure) {
         $ionicPlatform.ready(function() {
 
-            if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-                cordova.plugins.Keyboard.disableScroll(true);
-            }
-            if (window.StatusBar) {
-                StatusBar.styleLightContent();
+            // These folders will hold our images in persistent storage in our app
+            // The device initially holds them in a temp directory and deletes it.
+            function createDirectory(dir) {
+                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
+                    function(fileSystem) {
+                        fileSystem.root.getDirectory(dir, {create: true},
+                            function(directory) {
+                                console.log('Created the directory named: ' +
+                                                        JSON.stringify(directory));
+                                return directory;
+                            }
+                        );
+                    },
+                    function(err) {
+                        console.log('Could not create the file structure');
+                    });
             }
         });
     })
