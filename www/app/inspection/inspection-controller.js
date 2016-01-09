@@ -141,8 +141,16 @@
             }
             reports.push(vm.report);
             $scope.$storage.pending = reports;
-            $state.go('tab.dash');
-            return;
+
+            DataService.uploadReport(vm.report)
+            .then(
+                function(id) {
+                    $state.go('tab.dash');
+                    return;
+                },
+                function(err) {
+                    logger.error('There was an error uploading the report ' + JSON.stringify(err));
+                });
         };
 
         // Image Survey Modal

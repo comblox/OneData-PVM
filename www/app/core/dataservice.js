@@ -21,7 +21,8 @@
         var service = {
             getProjects:getProjects,
             getReport: getReport,
-            refreshProjects: refreshProjects
+            refreshProjects: refreshProjects,
+            uploadReport: uploadReport
         };
 
         return service;
@@ -72,5 +73,26 @@
             });
         }
 
+        function uploadReport(reportData) {
+            return $q(function (resolve, reject) {
+                // Query Azure
+                $http({
+                    method: 'POST',
+                    url: api.url + '/report',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: {report: reportData}
+                }).then(
+                function successCallback(report) {
+                    console.log(report.data);
+                    resolve(report.data);
+                },
+                function errorCallback(err) {
+                    console.log('Error uploading report: ' + JSON.stringify(err));
+                    reject(err);
+                });
+            });
+        }
     }
 })();
