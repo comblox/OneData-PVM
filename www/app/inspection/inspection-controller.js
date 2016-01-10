@@ -109,8 +109,8 @@
                         ));
                         vm.report.images.push(
                             {
-                              'path': img.nativeURL,
-                              'fileName': img.name
+                                'path': img.nativeURL,
+                                'fileName': img.name
                             }
                         );
                         return img;
@@ -154,7 +154,11 @@
                 function(id) {
                     vm.id = id;
                     for (var i = vm.report.images.length - 1; i >= 0; i--) {
-                        console.log('Image for upload into container: ' + id + vm.report.images[i].fileName);
+                        console.log(
+                            'Image for upload into container: ' +
+                            id +
+                            vm.report.images[i].fileName
+                        );
                         ImageUploadService.uploadImage(
                             vm.report.images[i].path,
                             vm.report.images[i].fileName,
@@ -163,7 +167,7 @@
                     }
                     return;
                 })
-                .then(function(id){
+                .then(function(id) {
                     $state.go('tab.dash');
                     return;
                 },
