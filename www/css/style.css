@@ -125,3 +125,7 @@ ion-tabs.tabs-color-active-stable .tab-item {
 .login-wrapper {
     padding-top: 65%
 }
+
+.tabs-info {
+    background: #fff !important;
+}
