@@ -98,7 +98,6 @@
                 vm.report.images.push('images/original/JPEG/example6.jpg');
                 vm.report.images.push('images/original/JPEG/example7.jpg');
                 vm.report.images.push('images/original/JPEG/example8.jpg');
-                ImageUploadService.uploadImage(vm.report.images[0]);
             }
             else {
                 CameraService.camera(vm.storage)
@@ -106,16 +105,15 @@
                     function(img) {
                         logger.info(
                             'Image returned from camera : ' +
-                            JSON.stringify(img.nativeURL
+                            JSON.stringify(img
                         ));
-                        vm.report.images.push(img.nativeURL);
+                        vm.report.images.push(
+                            {
+                              'path': img.nativeURL,
+                              'fileName': img.name
+                            }
+                        );
                         return img;
-                    })
-                .then(
-                    function(img) {
-                        logger.info('Uploading image: ' + img.nativeURL);
-                        ImageUploadService.uploadImage(img.nativeURL, img.name, 'image-test-area');
-                        return;
                     },
                     function(err) {
                         logger.error('Rejected: ' + err);
@@ -154,6 +152,18 @@
             DataService.uploadReport(vm.report)
             .then(
                 function(id) {
+                    vm.id = id;
+                    for (var i = vm.report.images.length - 1; i >= 0; i--) {
+                        console.log('Image for upload into container: ' + id + vm.report.images[i].fileName);
+                        ImageUploadService.uploadImage(
+                            vm.report.images[i].path,
+                            vm.report.images[i].fileName,
+                            id
+                        );
+                    }
+                    return;
+                })
+                .then(function(id){
                     $state.go('tab.dash');
                     return;
                 },

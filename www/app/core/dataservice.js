@@ -67,7 +67,7 @@
                     resolve(data.data);
                 },
                 function errorCallback(err) {
-                    console.log('Error fetching data from database: ' + err);
+                    console.log('Error fetching data from database: ' + JSON.stringify(err));
                     reject(err);
                 });
             });
