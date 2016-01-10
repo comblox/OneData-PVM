@@ -15,14 +15,15 @@
                                                           '$state', 'DataService', '$scope',
                                                           '$localStorage','GeolocationService',
                                                           '$ionicModal', '$ionicPopup',
-                                                          '$stateParams', '$cordovaFile'];
+                                                          '$stateParams', '$cordovaFile',
+                                                          'ImageUploadService'];
     /* @ngInject */
     /*jshint -W072 */
     function InspectionController(logger, $q, CameraService, $ionicPlatform,
                                                         $state, DataService, $scope, $localStorage,
                                                         GeolocationService, $ionicModal,
                                                         $ionicPopup, $stateParams,
-                                                        $cordovaFile) {
+                                                        $cordovaFile, ImageUploadService) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'InspectionController';
@@ -97,6 +98,7 @@
                 vm.report.images.push('images/original/JPEG/example6.jpg');
                 vm.report.images.push('images/original/JPEG/example7.jpg');
                 vm.report.images.push('images/original/JPEG/example8.jpg');
+                ImageUploadService.uploadImage(vm.report.images[0]);
             }
             else {
                 CameraService.camera(vm.storage)
@@ -107,6 +109,13 @@
                             JSON.stringify(img.nativeURL
                         ));
                         vm.report.images.push(img.nativeURL);
+                        return img;
+                    })
+                .then(
+                    function(img) {
+                        logger.info('Uploading image: ' + img.nativeURL);
+                        ImageUploadService.uploadImage(img.nativeURL, img.name, 'image-test-area');
+                        return;
                     },
                     function(err) {
                         logger.error('Rejected: ' + err);
