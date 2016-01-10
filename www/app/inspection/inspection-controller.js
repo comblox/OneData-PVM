@@ -16,14 +16,15 @@
                                                           '$localStorage','GeolocationService',
                                                           '$ionicModal', '$ionicPopup',
                                                           '$stateParams', '$cordovaFile',
-                                                          'ImageUploadService'];
+                                                          'ImageUploadService', '$ionicLoading'];
     /* @ngInject */
     /*jshint -W072 */
     function InspectionController(logger, $q, CameraService, $ionicPlatform,
                                                         $state, DataService, $scope, $localStorage,
                                                         GeolocationService, $ionicModal,
                                                         $ionicPopup, $stateParams,
-                                                        $cordovaFile, ImageUploadService) {
+                                                        $cordovaFile, ImageUploadService,
+                                                        $ionicLoading) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'InspectionController';
@@ -142,6 +143,9 @@
         };
 
         vm.saveReport = function() {
+            $ionicLoading.show({
+                template: 'Uploading report and images ...'
+            });
             var reports = $scope.$storage.pending;
             if (!reports) {
                 reports = [];
@@ -169,6 +173,7 @@
                 })
                 .then(function(id) {
                     $state.go('tab.dash');
+                    $ionicLoading.hide();
                     return;
                 },
                 function(err) {
