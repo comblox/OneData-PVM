@@ -81,6 +81,8 @@
                 function(data) {
                     vm.report.report = $stateParams.projectId + '-' + Date.now();
                     vm.report.projectTitle = $stateParams.projectTitle;
+                    vm.report.projectId = $stateParams.projectId;
+                    vm.report.uid = $stateParams.uid;
                     logger.info('Report Id: ' + vm.report.report);
                 },
                 function(err) {

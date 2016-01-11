@@ -92,7 +92,7 @@
         })
 
         .state('tab.inspection', {
-            url: '/inspection/:projectId/:projectTitle',
+            url: '/inspection/:uid/:projectId/:projectTitle',
             views: {
                 'tab-dash': {
                     templateUrl: 'app/inspection/inspection.html',

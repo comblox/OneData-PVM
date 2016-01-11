@@ -1,8 +1,10 @@
 [
-   {
+   {  "version": "1.0.0",
       "author": "Paul Sutherland",
       "report": "12345",
       "projectTitle": "",
+      "projectId": "",
+      "uid": "",
       "images": [],
       "geo": {
          "lat": "",
