@@ -33,7 +33,7 @@
     </div>
     <div>
         <h4 class="empty-content"
-               ng-if="vm.myProjects == '' "
+               ng-if="vm.myProjects == ''  || !vm.myProjects "
                ng-hide="vm.showSearch"
                ng-click="vm.showSearch = !vm.showSearch">
                <i class="button-clear ion-ios-search-strong"></i>Search for you projects

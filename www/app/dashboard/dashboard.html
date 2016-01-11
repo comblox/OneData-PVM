@@ -1,9 +1,4 @@
 <ion-view view-title="aBV Traffic Management" cache-view="false">
-<ion-nav-buttons side="right">
-    <button class="button button-icon button-clear ion-android-exit"
-                 ng-click="vm.logout()">
-    </button>
-</ion-nav-buttons>
   <ion-content>
     <div class="item item-divider">
         <div>
@@ -15,7 +10,7 @@
     </div>
     <div>
         <h4 class="empty-content"
-               ng-if="vm.myProjects == '' "
+               ng-if="vm.myProjects == '' || !vm.myProjects"
                ng-hide="vm.showSearch"
                ng-click="vm.addProjects()">
                <i class="button-clear ion-plus-round"></i>Add your projects to begin
