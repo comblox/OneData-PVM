@@ -6,7 +6,7 @@
    <ion-content>
         <h4 class="empty-content" ng-show="vm.report.images =='' ">There are no images, click the button below to add images</h4>
         <a ng-click="showConfirm($index)" ng-repeat="img in vm.report.images">
-            <img ng-src="{{img}}" class="survey-thumbnail">
+            <img ng-src="{{img.path}}" class="survey-thumbnail">
         </a>
     </ion-content>
 <ion-footer-bar class="bar-dark tabs ion-footer">
