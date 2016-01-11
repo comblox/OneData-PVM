@@ -12,10 +12,10 @@
         .factory('DataService', DataService);
 
     DataService.$inject = ['$q', 'logger', 'MockProjectsService', 'MockReportService',
-                                        '$localStorage', 'MockAlternativeReportService', '$http',
+                                        '$localStorage', '$http',
                                         'api'];
     function DataService($q, logger, MockProjectsService, MockReportService,
-                                      $localStorage, MockAlternativeReportService, $http,
+                                      $localStorage, $http,
                                       api) {
 
         var service = {
@@ -49,11 +49,7 @@
         }
 
         function getReport () {
-            if (!$localStorage.imsReport) {
-                return MockAlternativeReportService.query();
-            } else {
-                return MockReportService.query();
-            }
+            return MockReportService.query();
         }
 
         function refreshProjects() {

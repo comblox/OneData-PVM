@@ -1,8 +1,10 @@
 [
-   {
+   {  "version": "1.0.0",
       "author": "Paul Sutherland",
       "report": "12345",
       "projectTitle": "",
+      "projectId": "",
+      "uid": "",
       "images": [],
       "geo": {
          "lat": "",
@@ -17,15 +19,11 @@
             "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
             "questions":[
                {
-                  "question":"Inspector to be in possession of current PVM Design drawing",
+                  "question":"Has the TM notice been accepted by the council?",
                   "answer":""
                },
                {
-                  "question":"Has the Morning Inspection been carried out before 1030",
-                  "answer":""
-               },
-               {
-                  "question":"Has the Afternoon Inspection been carried out after 1500",
+                  "question":"Is signing in accordance with NRSWA?",
                   "answer":""
                }
             ]
@@ -37,23 +35,23 @@
             "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
             "questions":[
                {
-                  "question":"Are all the signs in the positions indicated on the Design Drawing?",
+                  "question":"Are all signs in the correct place?",
                   "answer":""
                },
                {
-                  "question":"Can all the signs be read by motorists/pedestrians.  (Check Cleanliness, Obstructions, Orientation)?",
+                  "question":"Are all signs clean?",
                   "answer":""
                },
                {
-                  "question":"Are any signs damaged?",
+                  "question":"Have all damaged signs been removed and replaced?",
                   "answer":""
                },
                {
-                  "question":"Are all signs weighted down and secured?",
+                  "question":"Are all signs secured against being blown over?",
                   "answer":""
                },
                {
-                  "question":"Is the information board displayed?",
+                  "question":"Is there an information board displayed?",
                   "answer":""
                }
             ]
@@ -65,19 +63,19 @@
             "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
             "questions":[
                {
-                  "question":"Are all the traffic cones in correct positions?",
+                  "question":"Are all traffic cones in the correct place?",
                   "answer":""
                },
                {
-                  "question":"Are all traffic cones clean and visible?",
+                  "question":"Are all traffic cones clean?",
                   "answer":""
                },
                {
-                  "question":"Do all traffic cones have a reflective sleeve?",
+                  "question":"Are all traffic cones fitted with a Class 2 reflective sleeve?",
                   "answer":""
                },
                {
-                  "question":"Are any cones damaged?",
+                  "question":"Have all damaged cones been removed and replaced?",
                   "answer":""
                }
             ]
@@ -89,15 +87,15 @@
             "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
             "questions":[
                {
-                  "question":"Are there road safety lamps present within the PVM?",
+                  "question":"Are there sufficient numbers of road safety lamps?",
                   "answer":""
                },
                {
-                  "question":"Are any lamps not working?",
+                  "question":"Are they working?",
                   "answer":""
                },
                {
-                  "question":"Are all lamps clean and visible?",
+                  "question":"Are they clean?",
                   "answer":""
                }
             ]
@@ -109,11 +107,15 @@
             "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
             "questions":[
                {
-                  "question":"Are all traffic lights operating? (observe 2 full cycles of lights changing)?",
+                  "question":"Are the traffic lights working correctly?",
                   "answer":""
                },
                {
-                  "question":"Are pedestrian routes clearly indicated?",
+                  "question":"Is there a STOP/GO board available?",
+                  "answer":""
+               },
+               {
+                  "question":"If the traffic lights are powered by diesel, is the tank full?",
                   "answer":""
                }
             ]
@@ -129,11 +131,35 @@
                   "answer":""
                },
                {
-                  "question":"Are pedestrian routes unobstructed and a minimum of 1m wide?",
+                  "question":"Are pedestrian routes free from obstructions?",
                   "answer":""
                },
                {
-                  "question":"Do temporary footway’s in carriageway have barriers and ramps for access?",
+                  "question":"Does it meet the minimum unobstructed width of 1m?",
+                  "answer":""
+               },
+               {
+                  "question":"If a temporary footway in the road is used, are ramps to the kerbs provided where necessary?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Completion",
+            "order":7,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Have all signs, cones, barriers & lamps been removed?",
+                  "answer":""
+               },
+               {
+                  "question":"Have any covered permanent signs been restored?",
+                  "answer":""
+               },
+               {
+                  "question":"Have the authorities been told the work is completed?",
                   "answer":""
                }
             ]
