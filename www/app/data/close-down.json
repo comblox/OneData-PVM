@@ -1,0 +1,46 @@
+[
+   {
+      "author": "",
+      "report": "",
+      "type":"Close Down Report",
+      "projectTitle": "",
+      "projectId": "",
+      "uid": "",
+      "images": [],
+      "geo": {
+         "lat": "",
+         "long": ""
+      },
+      "uploaded": false,
+      "questions": [
+         {
+            "title":"Inspection",
+            "order":1,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Have all signs/cones/barriers been removed from site?",
+                  "answer":""
+               },
+               {
+                  "question":"Have any bagged signs been uncovered?",
+                  "answer":""
+               },
+               {
+                  "question":"Have any temporary ramps been removed?",
+                  "answer":""
+               },
+               {
+                  "question":"Has any temporary lining been removed and permanent lining reinstated?",
+                  "answer":""
+               },
+               {
+                  "question":"Has the sign been left safe and clear for use by pedestrians and vehicles?",
+                  "answer":""
+               }
+            ]
+         }
+      ]
+   }
+]

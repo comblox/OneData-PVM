@@ -1,0 +1,98 @@
+[
+   {
+      "author": "",
+      "report": "",
+      "type":"Setup Report",
+      "projectTitle": "",
+      "projectId": "",
+      "uid": "",
+      "images": [],
+      "geo": {
+         "lat": "",
+         "long": ""
+      },
+      "uploaded": false,
+      "questions": [
+         {
+            "title":"Inspection",
+            "order":1,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Is all advance signing in place?",
+                  "answer":""
+               },
+               {
+                  "question":"Are all signs/cones clean?",
+                  "answer":""
+               },
+               {
+                  "question":"Are there any damaged signs?",
+                  "answer":""
+               },
+               {
+                  "question":"Do all cones have reflective sleeves?",
+                  "answer":""
+               },
+               {
+                  "question":"Do all signs have sufficient ballast?",
+                  "answer":""
+               },
+               {
+                  "question":"Are all tapers set out correctly with correct signage?",
+                  "answer":""
+               },
+               {
+                  "question":"Has action been taken to reduce/eliminate slips, trips and falls?",
+                  "answer":""
+               },
+               {
+                  "question":"Have all affected crossings/Bus Stops been closed bagged as required?",
+                  "answer":""
+               },
+               {
+                  "question":"Are temporary traffic lights working correctly?",
+                  "answer":""
+               },
+               {
+                  "question":"Has battery life or deisel level been checked for temporary traffic lights?",
+                  "answer":""
+               },
+               {
+                  "question":"Have all pedestrian routes been checked, (min 1m)?",
+                  "answer":""
+               },
+               {
+                  "question":"Is there adequate access for special needs on footway routes?",
+                  "answer":""
+               }
+            ]
+         },
+         {
+            "title":"Verification",
+            "order":2,
+            "comment":"",
+            "info":"Here we add content from the IMS system or mandatory legislation or best practise info",
+            "questions":[
+               {
+                  "question":"Is PVM set up as per Drawing?",
+                  "answer":""
+               },
+               {
+                  "question":"Has Completed PVM been  Inspected?",
+                  "answer":""
+               },
+               {
+                  "question":"Have PVM Set up photos taken?",
+                  "answer":""
+               },
+               {
+                  "question":"Is aBV Representative on site?",
+                  "answer":""
+               }
+            ]
+         }
+      ]
+   }
+]
