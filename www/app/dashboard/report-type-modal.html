@@ -1,0 +1,30 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+            <h1 class="title">Select Your Report</h1>
+            <button class="button button-clear button-primary" ng-click="reportModal.hide()">Close</button>
+    </ion-header-bar>
+   <ion-content>
+        <ion-list>
+            <ion-item class="item item-icon-left item-icon-right item-report"
+                            href="#/tab/inspection/{{reportModal.project.projectId}}/{{reportModal.project.id}}/{{reportModal.project.projectName}}/setup">
+                <i class="icon ion-document-text"></i>
+                <h2>Project Setup Report</h2>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right item-report"
+                            href="#/tab/inspection/{{reportModal.project.projectId}}/{{reportModal.project.id}}/{{reportModal.project.projectName}}/inspection">
+                <i class="icon ion-document-text"></i>
+                <h2>Inspection Report</h2>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right item-report"
+                            href="#/tab/inspection/{{reportModal.project.projectId}}/{{reportModal.project.id}}/{{reportModal.project.projectName}}/close">
+                <i class="icon ion-document-text"></i>
+                <h2>Project Close Down Report</h2>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>
+
+

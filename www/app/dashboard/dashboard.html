@@ -5,7 +5,7 @@
             My Projects
         </div>
         <h6>
-            (click a project to begin an Inspection)
+            (select a project to begin an Inspection)
         </h6>
     </div>
     <div>
@@ -17,17 +17,13 @@
         </h4>
     </div>
 
-    <ion-item class="item-remove-animate item-icon-right"
+    <ion-item class="item"
                     type="item-text-wrap"
-                    href="#/tab/inspection/{{p.projectId}}/{{p.id}}/{{p.projectName}}"
                     ng-repeat="p in vm.myProjects"
+                    ng-click="openReportModal(p)"
                     ng-show="p.show">
         <h4>{{p.projectName}}</h4>
         <p>Project Number: {{p.projectId}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-        <ion-option-button class="button-assertive">
-            Delete
-        </ion-option-button>
     </ion-item>
   </ion-content>
 </ion-view>

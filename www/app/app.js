@@ -48,7 +48,7 @@
 
     .config(['$localStorageProvider',
         function ($localStorageProvider) {
-            $localStorageProvider.setKeyPrefix('abv-');
+            $localStorageProvider.setKeyPrefix('pvm-');
         }]
     )
 
@@ -79,20 +79,15 @@
             },
             resolve : {
                 network : function($window) {
-                    if (!$window.localStorage['abv-network']) {
-                        $window.localStorage['abv-network'] = 'true';
-                    }
-                },
-                imsReport : function($window) {
-                    if (!$window.localStorage['abv-imsReport']) {
-                        $window.localStorage['abv-imsReport'] = 'true';
+                    if (!$window.localStorage['pvm-network']) {
+                        $window.localStorage['pvm-network'] = 'true';
                     }
                 }
             }
         })
 
         .state('tab.inspection', {
-            url: '/inspection/:uid/:projectId/:projectTitle',
+            url: '/inspection/:uid/:projectId/:projectTitle/:reportType',
             views: {
                 'tab-dash': {
                     templateUrl: 'app/inspection/inspection.html',

@@ -33,6 +33,7 @@
         vm.questions = '';
         vm.report = '';
         vm.reportDate = new Date();
+        vm.reportType = $stateParams.reportType;
 
         vm.directories = null;
         vm.files = null;
@@ -64,7 +65,7 @@
         * @description This function returns the data model from the dataservice
         */
         function getData() {
-            DataService.getReport()
+            DataService.getReport(vm.reportType)
             .then(
                 function (data) {
                     $scope.$storage.report = data;

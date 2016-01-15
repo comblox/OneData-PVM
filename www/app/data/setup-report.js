@@ -1,6 +1,6 @@
 /**
-* @ngdoc Mock Backend
-* @name MockReportService
+* @ngdoc Backend
+* @name SetupReportService
 * @description  This is a mock backend data store for building the app against
 *
 */
@@ -9,14 +9,14 @@
 
     angular
     .module('app')
-    .factory('MockReportService', MockReportService);
+    .factory('SetupReportService', SetupReportService);
 
-    MockReportService.$inject = ['$http'];
-    function MockReportService($http) {
+    SetupReportService.$inject = ['$http'];
+    function SetupReportService($http) {
 
         // Create an internal promise that resolves to the data inside question.json;
         // we'll use this promise in our own API to get the data we need.
-        var json = $http.get('app/data/report.json').then(function(response) {
+        var json = $http.get('app/data/setup-report.json').then(function(response) {
             return response.data;
         });
 

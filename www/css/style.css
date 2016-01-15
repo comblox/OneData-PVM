@@ -129,3 +129,8 @@ ion-tabs.tabs-color-active-stable .tab-item {
 .tabs-info {
     background: #fff !important;
 }
+
+.item-report {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

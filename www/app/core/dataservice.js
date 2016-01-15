@@ -11,10 +11,12 @@
         .module('app')
         .factory('DataService', DataService);
 
-    DataService.$inject = ['$q', 'logger', 'MockProjectsService', 'MockReportService',
+    DataService.$inject = ['$q', 'logger', 'InspectionReportService',
+                                        'ClosedownReportService', 'SetupReportService',
                                         '$localStorage', '$http',
                                         'api'];
-    function DataService($q, logger, MockProjectsService, MockReportService,
+    function DataService($q, logger, InspectionReportService,
+                                      ClosedownReportService, SetupReportService,
                                       $localStorage, $http,
                                       api) {
 
@@ -48,8 +50,16 @@
             });
         }
 
-        function getReport () {
-            return MockReportService.query();
+        function getReport (type) {
+            console.log('Report type: ' + type);
+            console.log(type === 'close');
+            if (type === 'setup') {
+                return SetupReportService.query();
+            } else if (type === 'close') {
+                return ClosedownReportService.query();
+            } else {
+                return InspectionReportService.query();
+            }
         }
 
         function refreshProjects() {
