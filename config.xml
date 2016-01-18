@@ -77,6 +77,8 @@
     <platform name="winphone">
   </platform>
   
+  <plugin name="org.apache.cordova.battery-status" spec="0.2.12" source="pgb" />
+  
  <feature name="http://api.phonegap.com/1.0/battery"/> 
  <feature name="http://api.phonegap.com/1.0/camera"/> 
  <feature name="http://api.phonegap.com/1.0/contacts"/> 
