@@ -82,7 +82,7 @@
   <plugin name="cordova-plugin-device" source="pgb" />
   <plugin name="cordova-plugin-console" source="pgb" />
   <plugin name="cordova-plugin-splashscreen" source="pgb" />
- 
+  <plugin name="cordova-plugin-camera" source="pgb" />
   <plugin name="com.ionic.keyboard" source="pgb" />
   <access origin="http://onedata.azurewebsites.net" subdomains="true" />
   <access origin="*" subdomains="true" />
