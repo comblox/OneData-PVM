@@ -82,7 +82,8 @@
   <plugin name="cordova-plugin-device" source="pgb" />
   <plugin name="cordova-plugin-console" source="pgb" />
   <plugin name="cordova-plugin-splashscreen" source="pgb" />
- 
+  <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" source="pgb" />
+  <plugin name="com.ionic.keyboard" spec=" source="pgb" />
   
   
  <feature name="http://api.phonegap.com/1.0/battery"/> 
