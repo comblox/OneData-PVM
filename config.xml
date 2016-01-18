@@ -84,7 +84,8 @@
   <plugin name="cordova-plugin-splashscreen" source="pgb" />
  
   <plugin name="com.ionic.keyboard" source="pgb" />
-  
+  <access origin="http://onedata.azurewebsites.net" subdomains="true" />
+  <access origin="*" subdomains="true" />
  
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
 </widget>
