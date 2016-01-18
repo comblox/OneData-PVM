@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.myapp864119" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="scot.abv.PVM" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Traffic</name>
   <description>
-        An Ionic Framework and Cordova project.
+        PVM Application for aBV.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="sutherlandp@bv.com" href="http://abv.scot/">
+      Paul Sutherland
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -72,5 +72,19 @@
     <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png"/>
     <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png"/>
   </platform>
+  
+  
+    <platform name="winphone">
+  </platform>
+  
+ <feature name="http://api.phonegap.com/1.0/battery"/> 
+ <feature name="http://api.phonegap.com/1.0/camera"/> 
+ <feature name="http://api.phonegap.com/1.0/contacts"/> 
+ <feature name="http://api.phonegap.com/1.0/file"/> 
+ <feature name="http://api.phonegap.com/1.0/geolocation"/> 
+ <feature name="http://api.phonegap.com/1.0/media"/> 
+ <feature name="http://api.phonegap.com/1.0/network"/> 
+ <feature name="http://api.phonegap.com/1.0/notification"/> 
+
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
 </widget>
